@@ -1,14 +1,20 @@
 #[macro_use]
 extern crate rocket;
 
+use rocket_dyn_templates::{context, Template};
+
 #[get("/")]
-fn index() -> &'static str {
-    "Hello, world!"
+fn index() -> Template {
+    Template::render("index", context! {})
 }
 
 #[rocket::main]
 async fn main() -> Result<(), rocket::Error> {
-    let _server = rocket::build().mount("/", routes![index]).launch().await?;
+    let _server = rocket::build()
+        .mount("/", routes![index])
+        .attach(Template::fairing())
+        .launch()
+        .await?;
 
     Ok(())
 }
