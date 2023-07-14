@@ -1,6 +1,7 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>http.fox</title>
-    </head>
-</html>
+{% extends "base" %} 
+
+{% block content %}
+
+<h1>http.fox!</h1>
+
+{% endblock content %}

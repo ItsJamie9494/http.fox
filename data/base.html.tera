@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{ title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="An API for HTTP Foxes, the best type of HTTP error message." />
+    <meta name="keywords" content="http, fox, http fox, http status fox, status fox, api, foxxo, error, http status" />
+    <meta name="author" content="Jamie Murphy" />
+</head>
+
+<body>
+    {% block content %}
+    {% endblock content %}
+</body>
+
+</html>

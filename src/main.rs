@@ -1,7 +1,8 @@
 #[macro_use]
 extern crate rocket;
 
-use rocket_dyn_templates::{context, Template};
+use rocket_dyn_templates::{Template};
+
 
 #[get("/")]
 fn index() -> Template {
