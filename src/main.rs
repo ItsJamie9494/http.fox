@@ -3,10 +3,11 @@ extern crate rocket;
 
 use rocket_dyn_templates::{Template};
 
+mod config;
 
 #[get("/")]
 fn index() -> Template {
-    Template::render("index", context! {})
+    Template::render("index", config::context())
 }
 
 #[rocket::main]
