@@ -1763,13 +1763,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild-plugin-wasm@npm:^1.1.0":
-  version: 1.1.0
-  resolution: "esbuild-plugin-wasm@npm:1.1.0"
-  checksum: b5e199773f42b8192194c2cb0440900ec152c193aa4ffe4802a81c02240f17603a070ca5e7a27257fbb205c5f4465d3a71f06913a2fecb9a3313a80eddcb9f53
-  languageName: node
-  linkType: hard
-
 "esbuild@npm:^0.18.7":
   version: 0.18.13
   resolution: "esbuild@npm:0.18.13"
@@ -5175,7 +5168,6 @@ __metadata:
     autoprefixer: "npm:^10.4.14"
     cssnano: "npm:^6.0.1"
     cssnano-preset-advanced: "npm:^6.0.1"
-    esbuild-plugin-wasm: "npm:^1.1.0"
     gulp: "npm:^4.0.2"
     gulp-concat: "npm:^2.6.1"
     gulp-esbuild: "npm:^0.11.2"

@@ -8,7 +8,6 @@ import gulpSass from "gulp-sass";
 import dartSass from "sass";
 /*js plugins*/
 import gulpEsbuild from "gulp-esbuild";
-import { wasmLoader } from "esbuild-plugin-wasm";
 
 const production = process.env.NODE_ENV === "production";
 
@@ -48,7 +47,6 @@ task("transpile-ts", () => {
 				bundle: true,
 				minify: production,
 				treeShaking: true,
-				plugins: [wasmLoader({ mode: "deferred" })],
 				sourcemap: "external",
 			}),
 		)

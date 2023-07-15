@@ -34,7 +34,6 @@ const RAW_RUNTIME_STATE =
           ["autoprefixer", "virtual:b7c8c2746d7d90b689617da78a19466e4d526568cb46887bcae6b07d46b42c7e48a7f790fdfc335a88c8750f9c5e533604f2e83a0d01fa3ef256974a7232d807#npm:10.4.14"],\
           ["cssnano", "virtual:b7c8c2746d7d90b689617da78a19466e4d526568cb46887bcae6b07d46b42c7e48a7f790fdfc335a88c8750f9c5e533604f2e83a0d01fa3ef256974a7232d807#npm:6.0.1"],\
           ["cssnano-preset-advanced", "virtual:b7c8c2746d7d90b689617da78a19466e4d526568cb46887bcae6b07d46b42c7e48a7f790fdfc335a88c8750f9c5e533604f2e83a0d01fa3ef256974a7232d807#npm:6.0.1"],\
-          ["esbuild-plugin-wasm", "npm:1.1.0"],\
           ["gulp", "npm:4.0.2"],\
           ["gulp-concat", "npm:2.6.1"],\
           ["gulp-esbuild", "npm:0.11.2"],\
@@ -2193,15 +2192,6 @@ const RAW_RUNTIME_STATE =
           ["@esbuild/win32-arm64", "npm:0.18.13"],\
           ["@esbuild/win32-ia32", "npm:0.18.13"],\
           ["@esbuild/win32-x64", "npm:0.18.13"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
-    ["esbuild-plugin-wasm", [\
-      ["npm:1.1.0", {\
-        "packageLocation": "../../.yarn/berry/cache/esbuild-plugin-wasm-npm-1.1.0-2fa409b3be-10c0.zip/node_modules/esbuild-plugin-wasm/",\
-        "packageDependencies": [\
-          ["esbuild-plugin-wasm", "npm:1.1.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -6242,7 +6232,6 @@ const RAW_RUNTIME_STATE =
           ["autoprefixer", "virtual:b7c8c2746d7d90b689617da78a19466e4d526568cb46887bcae6b07d46b42c7e48a7f790fdfc335a88c8750f9c5e533604f2e83a0d01fa3ef256974a7232d807#npm:10.4.14"],\
           ["cssnano", "virtual:b7c8c2746d7d90b689617da78a19466e4d526568cb46887bcae6b07d46b42c7e48a7f790fdfc335a88c8750f9c5e533604f2e83a0d01fa3ef256974a7232d807#npm:6.0.1"],\
           ["cssnano-preset-advanced", "virtual:b7c8c2746d7d90b689617da78a19466e4d526568cb46887bcae6b07d46b42c7e48a7f790fdfc335a88c8750f9c5e533604f2e83a0d01fa3ef256974a7232d807#npm:6.0.1"],\
-          ["esbuild-plugin-wasm", "npm:1.1.0"],\
           ["gulp", "npm:4.0.2"],\
           ["gulp-concat", "npm:2.6.1"],\
           ["gulp-esbuild", "npm:0.11.2"],\
