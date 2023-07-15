@@ -1,3 +1,17 @@
 {
-    "525": "SSL Handshake Failed"
+    "202": "?Accepted",
+    "207": "Multi-Status",
+    "400": "?Bad Request",
+    "402": "Payment Required",
+    "404": "Not Found",
+    "405": "?Method Not Allowed",
+    "408": "Request Timeout",
+    "409": "Conflict",
+    "421": "Misdirected Request",
+    "429": "Too Many Requests",
+    "508": "Loop Detected",
+    "509": "Bandwidth Limit Exceeded",
+    "521": "Web Server Is Down",
+    "525": "SSL Handshake Failed",
+    "530": "Site Frozen"
 }
