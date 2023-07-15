@@ -2,6 +2,7 @@ const ThemeToggle = document.getElementById("theme_toggle");
 const ThemeIcon = document.getElementById("theme_icon");
 const CopyToClipboardButton = document.getElementById("copy_clipboard_btn");
 const UsageBox = document.getElementById("usage_box");
+const CopyrightYear = document.getElementById("copyright_year");
 
 enum Theme {
 	Light = "light",
@@ -77,6 +78,11 @@ window.addEventListener("DOMContentLoaded", () => {
 
 		setTheme();
 	});
+
+	if (CopyrightYear) {
+		const year: Number = new Date().getFullYear();
+		CopyrightYear.innerText = year.toString();
+	}
 
 	setTheme();
 });

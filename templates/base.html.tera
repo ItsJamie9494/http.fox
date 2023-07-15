@@ -24,6 +24,7 @@
         {% endblock content %}
     </div>
 
+    {% include 'footer' %}
     <script src="/static/js/app.js"></script>
 </body>
 
