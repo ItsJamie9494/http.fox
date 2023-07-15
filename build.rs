@@ -2,7 +2,7 @@ use std::{env, error::Error, process::Command};
 
 fn main() -> Result<(), Box<dyn Error>> {
     println!("cargo:rerun-if-changed=static_src");
-    println!("cargo:rerun-if-changed=static");
+    println!("cargo:rerun-if-changed=templates");
     println!("cargo:rerun-if-changed=build.rs");
 
     env::set_current_dir("static_src")?;
