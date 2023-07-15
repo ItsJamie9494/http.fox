@@ -5,6 +5,7 @@ use config::Config;
 use error::error_catchers;
 use rocket::{fs::NamedFile, State};
 use rocket_dyn_templates::{context, Template};
+use std::path::{Path, PathBuf};
 
 pub mod config;
 mod error;
@@ -40,12 +41,33 @@ async fn img(img: &str, config: &State<Config>) -> Option<NamedFile> {
     }
 }
 
+#[get("/static/<type>/<asset>")]
+pub async fn static_files(r#type: String, asset: PathBuf) -> Option<NamedFile> {
+    match &r#type as &str {
+        "css" => {
+            let path = Path::new("./static/css").join(asset);
+            if path.is_dir() {
+                return None;
+            }
+            NamedFile::open(path).await.ok()
+        }
+        "img" => {
+            let path = Path::new("./static/img").join(asset);
+            if path.is_dir() {
+                return None;
+            }
+            NamedFile::open(path).await.ok()
+        }
+        _ => None,
+    }
+}
+
 #[rocket::main]
 async fn main() -> Result<(), rocket::Error> {
     let config = Config::default();
 
     let _server = rocket::build()
-        .mount("/", routes![index, img])
+        .mount("/", routes![index, img, static_files])
         .register("/", error_catchers())
         .attach(Template::fairing())
         .manage(config)

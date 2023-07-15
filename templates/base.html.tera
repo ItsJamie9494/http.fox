@@ -1,17 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" class="dark">
 
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="foxpost">
+    <meta name="rating" content="General">
     <title>{{ global.title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="An API for HTTP Foxes, the best type of HTTP error message." />
     <meta name="keywords" content="http, fox, http fox, http status fox, status fox, api, foxxo, error, http status" />
     <meta name="author" content="Jamie Murphy" />
+    {% block meta %}
+    {% endblock meta %}
+    <link async defer href="/static/css/bundle.css" rel="stylesheet">
 </head>
 
 <body>
     {% block content %}
     {% endblock content %}
+    <script src="/static/js/theme.js"></script>
 </body>
 
 </html>

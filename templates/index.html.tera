@@ -1,8 +1,7 @@
 {% extends "base" %} 
 
 {% block content %}
-
-<h1>http.fox!</h1>
+{% include 'nav' %}
 
 {% for status in unimplemented %}
 

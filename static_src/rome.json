@@ -1,0 +1,20 @@
+{
+	"$schema": "https://github.com/rome/tools/raw/main/npm/rome/configuration_schema.json",
+	"organizeImports": {
+		"enabled": false
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"security": {
+				"all": true
+			}
+		},
+		"ignore": ["*.cjs", "*.mjs"]
+	},
+	"formatter": {
+		"enabled": true,
+		"ignore": ["*.cjs", "*.mjs"]
+	}
+}
