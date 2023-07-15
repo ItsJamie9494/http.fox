@@ -16,7 +16,7 @@ fn main() -> Result<(), Box<dyn Error>> {
             .to_str()
             .ok_or(Box::<dyn Error>::from("Could not get File Name"))?;
 
-        if file_name.contains("raw") {
+        if file_name.contains("raw") && file.path().extension().is_some_and(|ext| ext == "png") {
             println!("Converting image {file_name}");
 
             let status_code = i32::from_str(&file_name.replace("_raw", ""))?;
