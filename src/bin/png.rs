@@ -17,13 +17,19 @@ fn main() -> Result<(), Box<dyn Error>> {
             .ok_or(Box::<dyn Error>::from("Could not get File Name"))?;
 
         if file_name.contains("raw") {
-            println!("Converting image {}", file_name);
+            println!("Converting image {file_name}");
 
             let status_code = i32::from_str(&file_name.replace("_raw", ""))?;
 
-            let png = Png::new(status_code);
-
-            png.image(&config);
+            match Png::new(status_code) {
+                Some(png) => {
+                    png.image(&config);
+                    println!("Successfully converted image {file_name}");
+                }
+                None => {
+                    println!("Image {file_name} os not a valid status image, skipping")
+                }
+            }
         }
     }
 

@@ -5,6 +5,7 @@ use image::{io::Reader, ImageOutputFormat};
 use resvg::usvg::{fontdb, Options, TreeParsing, TreeTextToPath};
 
 use crate::config::Config;
+use crate::status::Statuses;
 
 // Constants
 const IMAGE_WIDTH: u32 = 750;
@@ -17,11 +18,18 @@ const IMAGE_TEMPLATE: &'static str = include_str!("include/template.svg");
 /// Handle the creation of PNGs for each image
 pub struct Png {
     pub status: i32,
+    statuses: Statuses,
 }
 
 impl Png {
-    pub fn new(status: i32) -> Self {
-        Self { status }
+    pub fn new(status: i32) -> Option<Self> {
+        let statuses = Statuses::default();
+
+        if statuses.status_exists(status) {
+            Some(Self { status, statuses })
+        } else {
+            None
+        }
     }
 
     pub fn image(&self, config: &Config) -> PathBuf {
@@ -51,10 +59,15 @@ impl Png {
 
         let svg_image_string = format!("data:image/png;base64,{base64_encoded}");
 
-        // TODO: message
         let image = IMAGE_TEMPLATE
             .replace("DATA_IMAGE_URL", &svg_image_string)
-            .replace("__STATUS", &self.status.to_string());
+            .replace("__STATUS", &self.status.to_string())
+            .replace(
+                "__MESSAGE",
+                self.statuses
+                    .message(self.status)
+                    .expect("Status does not exist"),
+            );
         let mut font_db = fontdb::Database::new();
         font_db.load_font_data(FREESERIF_FONT.to_vec());
 
