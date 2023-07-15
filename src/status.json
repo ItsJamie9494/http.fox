@@ -1,5 +1,6 @@
 {
     "available": {
+        "102": "Processing",
         "202": "?Accepted",
         "207": "Multi-Status",
         "400": "?Bad Request",
@@ -19,7 +20,6 @@
     "unavailable": [
         100,
         101,
-        102,
         103,
         200,
         201,
