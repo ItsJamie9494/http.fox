@@ -51,6 +51,13 @@ pub async fn static_files(r#type: String, asset: PathBuf) -> Option<NamedFile> {
             }
             NamedFile::open(path).await.ok()
         }
+        "js" => {
+            let path = Path::new("./static/js").join(asset);
+            if path.is_dir() {
+                return None;
+            }
+            NamedFile::open(path).await.ok()
+        }
         "img" => {
             let path = Path::new("./static/img").join(asset);
             if path.is_dir() {
