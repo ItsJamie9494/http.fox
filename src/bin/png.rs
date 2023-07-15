@@ -27,7 +27,7 @@ fn main() -> Result<(), Box<dyn Error>> {
                     println!("Successfully converted image {file_name}");
                 }
                 None => {
-                    println!("Image {file_name} os not a valid status image, skipping")
+                    println!("Image {file_name} is not a valid status image, skipping")
                 }
             }
         }
