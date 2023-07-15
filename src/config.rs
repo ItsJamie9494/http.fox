@@ -16,12 +16,14 @@ impl Default for Config {
         Config {
             raw_images_dir: {
                 let mut dir = current_dir.clone();
+                dir.push("static");
                 dir.push("images");
                 dir.push("raw");
                 dir
             },
             images_dir: {
                 let mut dir = current_dir.clone();
+                dir.push("static");
                 dir.push("images");
                 dir
             },
