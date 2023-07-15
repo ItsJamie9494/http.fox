@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en" class="dark h-full">
 
 <head>
     <meta charset="utf-8">
@@ -16,15 +16,16 @@
     <link async defer href="/static/css/bundle.css" rel="stylesheet">
 </head>
 
-<body class="bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-100 transition-all">
+<body class="bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-100 h-full flex flex-col transition-all">
     {% include 'nav' %}
 
-    <div class="m-4">
+    <div class="container mx-auto py-2.5 flex-grow">
         {% block content %}
         {% endblock content %}
     </div>
 
     {% include 'footer' %}
+
     <script src="/static/js/app.js"></script>
 </body>
 
