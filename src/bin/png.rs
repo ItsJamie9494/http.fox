@@ -6,7 +6,7 @@ use httpfox::{config::Config, png::Png};
 fn main() -> Result<(), Box<dyn Error>> {
     let config = Config::default();
 
-    for f in config.images_dir.read_dir()? {
+    for f in config.raw_images_dir.read_dir()? {
         let file = f?;
 
         let _filename = file.path();
@@ -21,9 +21,9 @@ fn main() -> Result<(), Box<dyn Error>> {
 
             let status_code = i32::from_str(&file_name.replace("_raw", ""))?;
 
-            match Png::new(status_code) {
+            match Png::new(&config, status_code) {
                 Some(png) => {
-                    png.image(&config);
+                    png.image();
                     println!("Successfully converted image {file_name}");
                 }
                 None => {

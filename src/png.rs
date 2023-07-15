@@ -18,36 +18,46 @@ const IMAGE_TEMPLATE: &'static str = include_str!("include/template.svg");
 /// Handle the creation of PNGs for each image
 pub struct Png {
     pub status: i32,
+    img_dir: PathBuf,
+    raw_img_dir: PathBuf,
     statuses: Statuses,
 }
 
 impl Png {
-    pub fn new(status: i32) -> Option<Self> {
+    pub fn new(config: &Config, status: i32) -> Option<Self> {
         let statuses = Statuses::default();
 
+        let img_dir = config.images_dir.clone();
+        let raw_img_dir = config.raw_images_dir.clone();
+
         if statuses.status_exists(status) {
-            Some(Self { status, statuses })
+            Some(Self {
+                status,
+                img_dir,
+                raw_img_dir,
+                statuses,
+            })
         } else {
             None
         }
     }
 
-    pub fn image(&self, config: &Config) -> PathBuf {
-        let mut images_dir = config.images_dir.clone();
+    pub fn image(&self) -> PathBuf {
+        let mut img_dir = self.img_dir.clone(); 
+        
+        self.create_image().expect("Could not create image");
 
-        self.create_image(config).expect("Could not create image");
-
-        images_dir.push(format!("{}.png", self.status));
-        images_dir.to_path_buf()
+        img_dir.push(format!("{}.png", self.status));
+        img_dir.to_path_buf()
     }
 
     // Manually create the image if it doesn't exist
-    fn create_image(&self, config: &Config) -> Result<(), Box<dyn Error>> {
+    fn create_image(&self) -> Result<(), Box<dyn Error>> {
         let mut buffer = Vec::new();
 
-        let mut raw_file = config.images_dir.clone();
+        let mut raw_file = self.raw_img_dir.clone();
         raw_file.push(format!("{}_raw.png", self.status));
-        let mut img_file = config.images_dir.clone();
+        let mut img_file = self.img_dir.clone();
         img_file.push(format!("{}.png", self.status));
 
         let svg = Reader::open(raw_file)?.decode()?;

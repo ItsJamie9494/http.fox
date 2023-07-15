@@ -3,6 +3,7 @@ use std::{env, path::PathBuf};
 use rocket::serde::Serialize;
 
 pub struct Config {
+    pub raw_images_dir: PathBuf,
     pub images_dir: PathBuf,
 }
 
@@ -10,8 +11,14 @@ impl Default for Config {
     fn default() -> Self {
         let current_dir = env::current_dir().expect("Could not find current running directory");
         Config {
+            raw_images_dir: {
+                let mut dir = current_dir.clone();
+                dir.push("images");
+                dir.push("raw");
+                dir
+            },
             images_dir: {
-                let mut dir = current_dir;
+                let mut dir = current_dir.clone();
                 dir.push("images");
                 dir
             },
