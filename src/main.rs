@@ -5,6 +5,7 @@ use rocket_dyn_templates::Template;
 
 pub mod config;
 pub mod png;
+pub mod status;
 
 #[get("/")]
 fn index() -> Template {
