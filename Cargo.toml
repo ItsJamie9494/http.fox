@@ -5,6 +5,7 @@ authors = ["Jamie Murphy <hello@itsjamie.dev>"]
 edition = "2021"
 description = "HTTP Foxxos"
 license = "MIT"
+default-run = "httpfox"
 
 [lib]
 name = "httpfox"
