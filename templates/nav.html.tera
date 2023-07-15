@@ -1,12 +1,11 @@
 <nav
-    class="border-white-200 dark:border-black-200 bg-white dark:bg-black text-black dark:text-white px-2 sm:px-4 py-2.5 rounded">
+    class="bg-white dark:bg-black text-black dark:text-white px-2 sm:px-4 py-2.5">
     <div class="container flex flex-wrap items-center justify-between mx-auto">
         <a href="/" class="flex items-center">
             <img loading="lazy" src="/static/images/icon50.png" height="50%" width="50%"
                 srcset="/static/images/icon36.png 36w,/static/images/icon46.png 46w,/static/images/icon100.png 100w"
                 sizes="50vw" class="h-6 mr-3 sm:h-9" alt="Luna's sona" />
-            <span
-                class="self-center text-xl font-semibold whitespace-nowrap text-black dark:text-white">http.fox</span>
+            <span class="self-center text-xl font-semibold whitespace-nowrap text-black dark:text-white">http.fox</span>
         </a>
         <button data-collapse-toggle="navbar-default" type="button" id="menu-button"
             class="inline-flex items-center p-2 ml-3 text-sm text-black:500 dark:text-white-500 rounded-lg md:hidden hover:bg-black-100 focus:outline-none focus:ring-2 focus:ring-black-200 dark:text-white-400 dark:hover:bg-black-700 dark:focus:ring-black-600"
