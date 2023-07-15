@@ -4,4 +4,10 @@
 
 <h1>http.fox!</h1>
 
+{% for status in unimplemented %}
+
+<span style="color:red">{{ status }}</span>
+
+{% endfor %}
+
 {% endblock content %}

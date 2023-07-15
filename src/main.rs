@@ -5,15 +5,22 @@ use std::path::PathBuf;
 
 use config::Config;
 use rocket::{fs::NamedFile, State};
-use rocket_dyn_templates::Template;
+use rocket_dyn_templates::{context, Template};
 
 pub mod config;
 pub mod png;
 pub mod status;
 
 #[get("/")]
-fn index() -> Template {
-    Template::render("index", config::context())
+fn index(config: &State<Config>) -> Template {
+    let not_impl = config.status.not_implemented();
+    Template::render(
+        "index",
+        context! {
+            global: config::context(),
+            unimplemented: not_impl,
+        },
+    )
 }
 
 #[get("/images/<img>")]
