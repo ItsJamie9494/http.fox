@@ -3,7 +3,7 @@ extern crate rocket;
 
 use rocket_dyn_templates::{Template};
 
-mod config;
+pub mod config;
 
 #[get("/")]
 fn index() -> Template {

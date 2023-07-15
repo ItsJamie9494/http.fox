@@ -1,4 +1,23 @@
+use std::{env, path::PathBuf};
+
 use rocket::serde::Serialize;
+
+pub struct Config {
+    pub images_dir: PathBuf,
+}
+
+impl Default for Config {
+    fn default() -> Self {
+        let current_dir = env::current_dir().expect("Could not find current running directory");
+        Config {
+            images_dir: {
+                let mut dir = current_dir;
+                dir.push("images");
+                dir
+            },
+        }
+    }
+}
 
 #[derive(Serialize)]
 pub struct GlobalCtx<'a> {
