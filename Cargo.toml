@@ -6,6 +6,9 @@ edition = "2021"
 description = "HTTP Foxxos"
 license = "MIT"
 
+[lib]
+name = "httpfox"
+
 [dependencies]
 base64 = "0.21.2"
 image = "0.24.6"
