@@ -4,7 +4,7 @@ extern crate rocket;
 use rocket_dyn_templates::Template;
 
 pub mod config;
-pub mod svg;
+pub mod png;
 
 #[get("/")]
 fn index() -> Template {

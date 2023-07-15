@@ -1,7 +1,7 @@
 use std::error::Error;
 use std::str::FromStr;
 
-use httpfox::{config::Config, svg::Svg};
+use httpfox::{config::Config, png::Png};
 
 fn main() -> Result<(), Box<dyn Error>> {
     let config = Config::default();
@@ -21,9 +21,9 @@ fn main() -> Result<(), Box<dyn Error>> {
 
             let status_code = i32::from_str(&file_name.replace("_raw", ""))?;
 
-            let svg = Svg::new(status_code);
+            let png = Png::new(status_code);
 
-            svg.image(&config);
+            png.image(&config);
         }
     }
 

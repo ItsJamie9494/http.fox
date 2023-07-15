@@ -1,2 +1,2 @@
 pub mod config;
-pub mod svg;
+pub mod png;

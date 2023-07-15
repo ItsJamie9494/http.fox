@@ -14,12 +14,12 @@ const IMAGE_HEIGHT: u32 = 600;
 const FREESERIF_FONT: &[u8] = include_bytes!("include/freeserif.ttf");
 const IMAGE_TEMPLATE: &'static str = include_str!("include/template.svg");
 
-/// Handle the creation of SVGs for each image
-pub struct Svg {
+/// Handle the creation of PNGs for each image
+pub struct Png {
     pub status: i32,
 }
 
-impl Svg {
+impl Png {
     pub fn new(status: i32) -> Self {
         Self { status }
     }
