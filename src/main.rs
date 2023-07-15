@@ -4,10 +4,12 @@ extern crate rocket;
 use std::path::PathBuf;
 
 use config::Config;
+use error::error_catchers;
 use rocket::{fs::NamedFile, State};
 use rocket_dyn_templates::{context, Template};
 
 pub mod config;
+mod error;
 pub mod png;
 pub mod status;
 
@@ -41,6 +43,7 @@ async fn main() -> Result<(), rocket::Error> {
 
     let _server = rocket::build()
         .mount("/", routes![index, images])
+        .register("/", error_catchers())
         .attach(Template::fairing())
         .manage(config)
         .launch()
