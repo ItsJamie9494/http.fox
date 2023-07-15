@@ -1,8 +1,6 @@
 #[macro_use]
 extern crate rocket;
 
-use std::path::PathBuf;
-
 use config::Config;
 use error::error_catchers;
 use rocket::{fs::NamedFile, State};
@@ -25,12 +23,17 @@ fn index(config: &State<Config>) -> Template {
     )
 }
 
-#[get("/images/<img>")]
-async fn images(img: PathBuf, config: &State<Config>) -> Option<NamedFile> {
+#[get("/<img>")]
+async fn img(img: &str, config: &State<Config>) -> Option<NamedFile> {
     let mut img_path = config.images_dir.clone();
 
-    img_path.push(img);
-    if !img_path.is_dir() && img_path.is_file() {
+    if img.contains("png") {
+        img_path.push(img);
+    } else {
+        img_path.push(format!("{img}.png"))
+    }
+
+    if img_path.exists() && img_path.is_file() {
         NamedFile::open(img_path).await.ok()
     } else {
         None
@@ -42,7 +45,7 @@ async fn main() -> Result<(), rocket::Error> {
     let config = Config::default();
 
     let _server = rocket::build()
-        .mount("/", routes![index, images])
+        .mount("/", routes![index, img])
         .register("/", error_catchers())
         .attach(Template::fairing())
         .manage(config)
