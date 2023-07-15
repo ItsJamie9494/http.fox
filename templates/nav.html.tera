@@ -4,9 +4,11 @@
             <img loading="lazy" src="/static/images/icon50.png" height="50%" width="50%"
                 srcset="/static/images/icon36.png 36w,/static/images/icon46.png 46w,/static/images/icon100.png 100w"
                 sizes="50vw" class="h-6 mr-3 sm:h-9" alt="A fox jumping into the snow" />
-            <span class="self-center text-xl font-semibold whitespace-nowrap text-black dark:text-white transition-all">http.fox</span>
+            <span
+                class="self-center text-xl font-semibold whitespace-nowrap text-black dark:text-white transition-all">http.fox</span>
         </a>
-        <button class="flex p-2 h-10 dark:hover:brightness-75 hover:contrast-25 transition-all" id="theme_toggle" title="Enable Dark Mode">
+        <button class="flex p-2 h-10 dark:hover:brightness-75 hover:contrast-25 transition-all" id="theme_toggle"
+            title="Enable Dark Mode">
             <img alt="Moon Icon" class="w-8" loading="lazy" decoding="async" src="/static/img/moon.svg"
                 id="theme_icon" />
         </button>
