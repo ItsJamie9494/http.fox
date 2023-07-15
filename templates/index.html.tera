@@ -4,8 +4,8 @@
 
 <h2 class="text-2xl">Usage:</h2>
 
-<pre class="px-5 py-3 rounded bg-slate-500 text-white m-1 flex justify-between items-center"
-    id="usage_box">{{ global.base_url }}/[status_code]<button title="Copy to Clipboard" class="flex p-2 h-10 rounded-lg bg-red-400 hover:bg-red-300 transition-colors" id="copy_clipboard_btn"><img  alt="Copy to clipboard icon" class="w-8" loading="lazy" decoding="async" src="/static/img/copy.svg"/></button></pre>
+<pre class="px-5 py-3 rounded bg-slate-500 text-white m-1 flex justify-between items-center transition-all"
+    id="usage_box">{{ global.base_url }}/[status_code]<button title="Copy to Clipboard" class="flex p-2 h-10 rounded-lg bg-red-400 hover:bg-red-300 transition-colors" id="copy_clipboard_btn"><img alt="Copy to clipboard icon" class="w-8" loading="lazy" decoding="async" src="/static/img/copy.svg"/></button></pre>
 
 {% for status in unimplemented %}
 

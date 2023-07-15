@@ -16,7 +16,7 @@
     <link async defer href="/static/css/bundle.css" rel="stylesheet">
 </head>
 
-<body class="bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-100">
+<body class="bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-100 transition-all">
     {% include 'nav' %}
 
     <div class="m-4">
