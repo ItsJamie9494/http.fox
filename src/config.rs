@@ -2,9 +2,12 @@ use std::{env, path::PathBuf};
 
 use rocket::serde::Serialize;
 
+use crate::status::Statuses;
+
 pub struct Config {
     pub raw_images_dir: PathBuf,
     pub images_dir: PathBuf,
+    pub status: Statuses,
 }
 
 impl Default for Config {
@@ -22,6 +25,7 @@ impl Default for Config {
                 dir.push("images");
                 dir
             },
+            status: Statuses::default(),
         }
     }
 }
