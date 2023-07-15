@@ -16,9 +16,14 @@
     <link async defer href="/static/css/bundle.css" rel="stylesheet">
 </head>
 
-<body>
-    {% block content %}
-    {% endblock content %}
+<body class="bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-100">
+    {% include 'nav' %}
+
+    <div class="m-4">
+        {% block content %}
+        {% endblock content %}
+    </div>
+
     <script src="/static/js/theme.js"></script>
 </body>
 
