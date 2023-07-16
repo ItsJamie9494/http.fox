@@ -10,3 +10,4 @@ HTTP Foxxos
 2. Run the command `cargo run --bin png` to regenerate all images, or `cargo run --bin png <CODE>` to generate a single image.
 3. In the file `/src/status.json`, move the code from the Unimplemented list to the Implemented list.
 4. Add a new file in `/templates/statuses` in the format `CODE.html.tera`. More details about the status file format can be found in [the README.md](/templates/statuses/README.md)
+5. Credit yourself! Add an entry to `/src/credits.json`
