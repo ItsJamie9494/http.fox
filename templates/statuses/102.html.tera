@@ -1,0 +1,30 @@
+{% extends "statuses/base" %}
+{% import "statuses/utils" as utils %}
+
+{% block notices %}
+
+{{ utils::deprecated() }}
+
+{% endblock notices %}
+
+{% block description %}
+
+The HTTP {{ utils::pre(text="102 Processing") }} informational status response code indicates to client that a full request has been received and the server is working on it.
+
+This status code is only sent if the server expects the request to take significant time. It tells the client that your request is not dead yet.
+
+{% endblock description %}
+
+{% block see_also %}
+
+<li>
+    {{ utils::link(href="https://tools.ietf.org/html/rfc2518#section-10.1", text="Spec") }}
+</li>
+<li>
+    {{ utils::link(href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Expect", text="Expect HTTP Header") }}
+</li>
+<li>
+    {{ utils::link(href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/102", text="102 Processing") }}
+</li>
+
+{% endblock see_also %}

@@ -6,6 +6,7 @@ use error::error_catchers;
 use rocket::{fs::NamedFile, State};
 use rocket_dyn_templates::{context, Template};
 use std::path::{Path, PathBuf};
+use std::str::FromStr;
 
 pub mod config;
 mod error;
@@ -38,6 +39,24 @@ async fn img(img: &str, config: &State<Config>) -> Option<NamedFile> {
 
     if img_path.exists() && img_path.is_file() {
         NamedFile::open(img_path).await.ok()
+    } else {
+        None
+    }
+}
+
+#[get("/status/<code>")]
+async fn status_details(code: &str, config: &State<Config>) -> Option<Template> {
+    if config.status.status_exists(i32::from_str(code).ok()?) {
+        let message = config.status.message(i32::from_str(code).ok()?)?;
+
+        Some(Template::render(
+            format!("statuses/{code}"),
+            context! {
+                global: config::context(),
+                code,
+                message
+            },
+        ))
     } else {
         None
     }
@@ -76,7 +95,7 @@ async fn main() -> Result<(), rocket::Error> {
     let config = Config::default();
 
     let _server = rocket::build()
-        .mount("/", routes![index, img, static_files])
+        .mount("/", routes![index, img, status_details, static_files])
         .register("/", error_catchers())
         .attach(Template::fairing())
         .manage(config)
