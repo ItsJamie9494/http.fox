@@ -7,6 +7,20 @@
 <pre class="px-5 py-3 rounded bg-slate-500 text-white m-1 flex justify-between items-center transition-all"
     id="usage_box">{{ global.base_url }}/[status_code]<button title="Copy to Clipboard" class="flex p-2 h-10 rounded-lg bg-red-400 hover:bg-red-300 transition-colors" id="copy_clipboard_btn"><img alt="Copy to clipboard icon" class="w-8" loading="lazy" decoding="async" src="/static/img/copy.svg"/></button></pre>
 
+<main class="grid grid-cols-3 gap-4">
+    {% for code in codes %}
 
+        <div>
+            <a href="/status/{{ code.0 }}">
+                <i class="bg-center bg-no-repeat bg-cover overflow-hidden" style="background-image:url(/static/images/{{ code.0 }}.png)"></i>
+                <div class="space-y-1">
+                    <h3 class="text-lg">{{ code.0 }}</h3>
+                    <p class="text-base">{{ code.1 }}</p>
+                </div>
+            </a>
+        </div>
+
+    {% endfor %}
+</main>
 
 {% endblock content %}

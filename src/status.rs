@@ -75,4 +75,8 @@ impl Statuses {
     pub fn not_implemented(&self) -> Vec<i32> {
         self.not_implemented_list.clone()
     }
+
+    pub fn all_statuses(&self) -> Vec<Status> {
+        self.list.clone()
+    }
 }
