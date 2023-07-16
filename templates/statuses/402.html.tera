@@ -1,0 +1,33 @@
+{% extends "statuses/base" %}
+{% import "statuses/utils" as utils %}
+
+{% block notices %}
+
+{{ utils::experimental() }}
+
+{% endblock notices %}
+
+{% block description %}
+
+The HTTP {{ utils::pre(text="402 Payment Required") }} is a nonstandard response status code that is reserved for future
+use. This status code was created to enable digital cash or (micro) payment systems and would indicate that the
+requested content is not available until the client makes a payment.
+<br /><br />
+Sometimes, this status code indicates that the request cannot be processed until the client makes a payment. However, no
+standard use convention exists and different entities use it in different contexts.
+
+{% endblock description %}
+
+{% block see_also %}
+
+<li>
+    {{ utils::link(href="https://www.rfc-editor.org/rfc/rfc9110#status.402", text="Spec") }}
+</li>
+<li>
+    {{ utils::link(href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication", text="HTTP Authentication") }}
+</li>
+<li>
+    {{ utils::link(href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402", text="402 Payment Required") }}
+</li>
+
+{% endblock see_also %}

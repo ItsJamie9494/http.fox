@@ -1,0 +1,33 @@
+{% extends "statuses/base" %}
+{% import "statuses/utils" as utils %}
+
+{% block notices %}
+
+{{ utils::note(text="The ability to return a collection of resources is part of the WebDAV protocol (it may be received
+by web applications accessing a WebDAV server). Browsers accessing web pages will never encounter this status code.") }}
+
+{% endblock notices %}
+
+{% block description %}
+
+The HTTP {{ utils::pre(text="207 Multi-Status") }} response code indicates that there might be a mixture of responses.
+<br /><br />
+The response body is a {{ utils::pre(text="text/xml") }} or {{ utils::pre(text="application/xml") }} HTTP entity with a
+multistatus root element. The XML body will list all individual response codes.
+
+{% endblock description %}
+
+{% block see_also %}
+
+<li>
+    {{ utils::link(href="https://www.rfc-editor.org/rfc/rfc4918#section-11.1", text="Spec") }}
+</li>
+<li>
+    {{ utils::link(href="https://developer.mozilla.org/en-US/docs/Glossary/WebDAV", text="WebDAV")
+    }}
+</li>
+<li>
+    {{ utils::link(href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/207", text="207 Multi-Status") }}
+</li>
+
+{% endblock see_also %}

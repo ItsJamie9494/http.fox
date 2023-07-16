@@ -1,0 +1,29 @@
+{% extends "statuses/base" %}
+{% import "statuses/utils" as utils %}
+
+{% block notices %}
+
+{{ utils::unofficial() }}
+
+{% endblock notices %}
+
+{% block description %}
+
+The HTTP {{ utils::pre(text="530 Site Frozen") }} response code is an unofficial HTTP status code specific to
+Cloudflare.
+<br /><br />
+Cloudflare uses the {{ utils::pre(text="530") }} status code when an issue occurs between a user and a website server.
+Accompanied by more detailed HTTP status code {{ utils::pre(text="1XXX") }}, the error is dependent on the specific
+situation.
+
+{% endblock description %}
+
+{% block see_also %}
+
+<li>
+    {{
+    utils::link(href="https://developers.cloudflare.com/support/troubleshooting/cloudflare-errors/troubleshooting-cloudflare-5xx-errors/#error-530",
+    text="Cloudflare Docs") }}
+</li>
+
+{% endblock see_also %}

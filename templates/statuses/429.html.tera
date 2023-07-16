@@ -1,0 +1,26 @@
+{% extends "statuses/base" %}
+{% import "statuses/utils" as utils %}
+
+{% block description %}
+
+The HTTP {{ utils::pre(text="429 Too Many Requests") }} response status code indicates the user has sent too many
+requests in a given amount of time ("rate limiting").
+<br /><br />
+A {{ utils::pre(text="Retry-After") }} header might be included to this response indicating how long to wait before
+making a new request.
+
+{% endblock description %}
+
+{% block see_also %}
+
+<li>
+    {{ utils::link(href="https://datatracker.ietf.org/doc/html/rfc6585#section-4", text="Spec") }}
+</li>
+<li>
+    {{ utils::link(href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After", text="Retry-After HTTP Header") }}
+</li>
+<li>
+    {{ utils::link(href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429", text="429 Too Many Requests") }}
+</li>
+
+{% endblock see_also %}

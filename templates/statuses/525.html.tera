@@ -1,0 +1,42 @@
+{% extends "statuses/base" %}
+{% import "statuses/utils" as utils %}
+
+{% block notices %}
+
+{{ utils::unofficial() }}
+
+{{ utils::note(text="If your hosting provider frequently changes your origin web server’s IP address, refer to
+Cloudflare’s documentation on dynamic DNS updates.") }}
+
+{% endblock notices %}
+
+{% block description %}
+
+The HTTP {{ utils::pre(text="525 SSL Handshake Failed") }} response code is an unofficial HTTP status code specific to
+Cloudflare.
+<br /><br />
+The {{ utils::pre(text="525") }} error indicates that the SSL handshake between Cloudflare and the origin web server
+failed. Error {{ utils::pre(text="525") }} occurs
+when these two conditions are true:
+
+<ul class="ml-4 mb-4 list-disc">
+    <li>The SSL handshake fails between Cloudflare and the origin web server, and</li>
+    <li>Full or Full (Strict) SSL is set in the Overview tab of your Cloudflare SSL/TLS app.</li>
+</ul>
+
+{% endblock description %}
+
+{% block see_also %}
+
+<li>
+    {{
+    utils::link(href="https://developers.cloudflare.com/support/troubleshooting/cloudflare-errors/troubleshooting-cloudflare-5xx-errors/#error-525-ssl-handshake-failed",
+    text="Cloudflare Docs") }}
+</li>
+<li>
+    {{
+    utils::link(href="https://www.cloudflare.com/learning/ssl/what-happens-in-a-tls-handshake/https://www.cloudflare.com/learning/ssl/what-happens-in-a-tls-handshake/",
+    text="SSL Handshake") }}
+</li>
+
+{% endblock see_also %}

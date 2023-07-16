@@ -1,0 +1,27 @@
+{% extends "statuses/base" %}
+{% import "statuses/utils" as utils %}
+
+{% block notices %}
+
+{{ utils::unofficial() }}
+
+{% endblock notices %}
+
+{% block description %}
+
+The HTTP {{ utils::pre(text="509 Bandwidth Limit Exceeded") }} response code is an unofficial HTTP status code that is
+specific to Apache Web Server and cPanel that indicates that the web hosting client has exceeded the bandwidth allotment
+on the server-side.
+<br /></br />
+When the {{ utils::pre(text="509") }} status code is received, it means first that the web hosting client is using a
+connection or hosting method where the bandwidth is limited.
+
+{% endblock description %}
+
+{% block see_also %}
+
+<li>
+    {{ utils::link(href="https://documentation.cpanel.net/display/CKB/HTTP+Error+Codes+and+Quick+Fixes", text="cPanel Docs") }}
+</li>
+
+{% endblock see_also %}

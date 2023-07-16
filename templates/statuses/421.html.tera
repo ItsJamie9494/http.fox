@@ -1,0 +1,21 @@
+{% extends "statuses/base" %}
+{% import "statuses/utils" as utils %}
+
+{% block description %}
+
+The HTTP {{ utils::pre(text="421 Misdirected Request") }} client error response code indicates that the request was
+directed to a server that is not able to produce a response. This might be possible if a connection is reused or if an
+alternative service is selected.
+
+{% endblock description %}
+
+{% block see_also %}
+
+<li>
+    {{ utils::link(href="https://www.rfc-editor.org/rfc/rfc9110#status.421", text="Spec") }}
+</li>
+<li>
+    {{ utils::link(href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/421", text="421 Misdirected Request") }}
+</li>
+
+{% endblock see_also %}

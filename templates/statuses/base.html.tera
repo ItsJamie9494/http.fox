@@ -35,7 +35,7 @@
         {% block notices %}
         {% endblock notices %}
 
-        <p class="my-4">
+        <p class="mb-4">
             {% block description %}
             {% endblock description %}
         </p>
