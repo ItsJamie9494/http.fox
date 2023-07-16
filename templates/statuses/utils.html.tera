@@ -1,15 +1,34 @@
 {% macro unofficial() %}
-<aside class="warning rounded-lg bg-yellow-200 w-full flex px-5 py-3">
+<aside class="warning rounded-lg mb-4 bg-yellow-200 w-full flex px-5 py-3">
     <p><span class="font-bold">Unofficial:</span> This HTTP status code is not specified by any RFC.</p>
 </aside>
 {% endmacro unofficial %}
 
 {% macro deprecated() %}
-<aside class="deprecated rounded-lg bg-red-900 w-full flex px-5 py-3 text-white">
+<aside class="deprecated rounded-lg mb-4 bg-red-900 w-full flex px-5 py-3 text-white">
     <p><span class="font-bold">Deprecated:</span> This status code is deprecated. It is likely that clients will ignore
         this code, and it should not be used in any newly written code.</p>
 </aside>
 {% endmacro deprecated %}
+
+{% macro experimental() %}
+<aside class="note rounded-lg mb-4 bg-blue-900 w-full flex px-5 py-3 text-white">
+    <p><span class="font-bold">Experimental:</span> This is an experimental technology. Check the Browser compatibility
+        table carefully before using this in production.</p>
+</aside>
+{% endmacro note %}
+
+{% macro warning(text) %}
+<aside class="warning rounded-lg mb-4 bg-yellow-200 w-full flex px-5 py-3">
+    <p><span class="font-bold">Warning:</span> {{ text }}</p>
+</aside>
+{% endmacro warning %}
+
+{% macro note(text) %}
+<aside class="note rounded-lg mb-4 bg-blue-900 w-full flex px-5 py-3 text-white">
+    <p><span class="font-bold">Note:</span> {{ text }}</p>
+</aside>
+{% endmacro note %}
 
 {% macro pre(text) %}
 <span class="font-mono p-1 bg-slate-300 dark:bg-slate-500 text-black dark:text-white rounded">{{ text }}</span>

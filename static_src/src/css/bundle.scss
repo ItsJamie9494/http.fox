@@ -9,3 +9,8 @@
     content: "✕";
     margin-right: .5em;
 }
+
+.note::before {
+    content: "ⓘ";
+    margin-right: .5em;
+}
