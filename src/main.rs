@@ -14,14 +14,14 @@ pub mod status;
 
 #[get("/")]
 fn index(config: &State<Config>) -> Template {
-    let not_impl = config.status.not_implemented();
+    let missing_codes = config.status.not_implemented();
     let codes = config.status.all_statuses();
     Template::render(
         "index",
         context! {
             global: config::context(),
             codes,
-            unimplemented: not_impl,
+            missing_codes,
         },
     )
 }
