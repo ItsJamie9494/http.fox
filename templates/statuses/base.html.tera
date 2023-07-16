@@ -42,10 +42,13 @@
 
         <h4 class="text-xl">See Also</h4>
 
-        <ul class="list-disc ml-4">
+        <ul class="list-disc ml-4 mb-4">
             {% block see_also %}
             {% endblock see_also%}
         </ul>
+
+        <span class="italic">This fox graciously provided by <a class="hover:underline contrast-50"
+                href="{{ credits.url }}">{{ credits.name }}</a></span>
     </div>
 
     {% include 'footer' %}

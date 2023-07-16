@@ -1,0 +1,28 @@
+{% extends "base" %}
+
+{% block content %}
+
+<h2 class="text-2xl mb-4">Thank you to all that contributed a fox!</h2>
+
+{% for credit in codes %}
+
+<h3 class="text-xl hover:underline contrast-50"><a href="{{ credit.url }}">{{ credit.name }}</a></h1>
+
+<main class="grid grid-cols-6 gap-4 my-4">
+    {% for code in credit.codes %}
+
+    <div>
+        <a href="/status/{{ code }}" class="group text-black dark:text-white transition-all">
+            <div
+                class="bg-orange-400 dark:bg-orange-800 group-hover:bg-orange-300 dark:group-hover:bg-orange-700 px-5 py-3 rounded-lg flex justify-center transition-all">
+                <h3 class="text-xl font-bold">{{ code }}</h3>
+            </div>
+        </a>
+    </div>
+
+    {% endfor %}
+</main>
+
+{% endfor %}
+
+{% endblock content %}

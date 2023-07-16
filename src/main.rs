@@ -9,6 +9,7 @@ use std::path::{Path, PathBuf};
 use std::str::FromStr;
 
 pub mod config;
+pub mod credits;
 mod error;
 pub mod png;
 pub mod status;
@@ -23,6 +24,18 @@ fn index(config: &State<Config>) -> Template {
             global: config::context(),
             codes,
             missing_codes,
+        },
+    )
+}
+
+#[get("/credits")]
+fn credits_page(config: &State<Config>) -> Template {
+    let codes = config.credits.all_credits();
+    Template::render(
+        "credits",
+        context! {
+            global: config::context(),
+            codes,
         },
     )
 }
@@ -61,13 +74,18 @@ async fn img_raw(img: &str, config: &State<Config>) -> Option<NamedFile> {
 async fn status_details(code: &str, config: &State<Config>) -> Option<Template> {
     if config.status.status_exists(i32::from_str(code).ok()?) {
         let message = config.status.message(i32::from_str(code).ok()?)?;
+        let credits = config
+            .credits
+            .clone()
+            .search_credits(i32::from_str(code).ok()?)?;
 
         Some(Template::render(
             format!("statuses/{code}"),
             context! {
                 global: config::context(),
                 code,
-                message
+                message,
+                credits
             },
         ))
     } else {
@@ -110,7 +128,14 @@ async fn main() -> Result<(), rocket::Error> {
     let _server = rocket::build()
         .mount(
             "/",
-            routes![index, img, img_raw, status_details, static_files],
+            routes![
+                index,
+                credits_page,
+                img,
+                img_raw,
+                status_details,
+                static_files
+            ],
         )
         .register("/", error_catchers())
         .attach(Template::fairing())
