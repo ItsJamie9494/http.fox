@@ -44,6 +44,19 @@ async fn img(img: &str, config: &State<Config>) -> Option<NamedFile> {
     }
 }
 
+#[get("/raw/<img>")]
+async fn img_raw(img: &str, config: &State<Config>) -> Option<NamedFile> {
+    let mut img_path = config.raw_images_dir.clone();
+
+    img_path.push(format!("{img}_raw.png"));
+
+    if img_path.exists() && img_path.is_file() {
+        NamedFile::open(img_path).await.ok()
+    } else {
+        None
+    }
+}
+
 #[get("/status/<code>")]
 async fn status_details(code: &str, config: &State<Config>) -> Option<Template> {
     if config.status.status_exists(i32::from_str(code).ok()?) {
@@ -95,7 +108,10 @@ async fn main() -> Result<(), rocket::Error> {
     let config = Config::default();
 
     let _server = rocket::build()
-        .mount("/", routes![index, img, status_details, static_files])
+        .mount(
+            "/",
+            routes![index, img, img_raw, status_details, static_files],
+        )
         .register("/", error_catchers())
         .attach(Template::fairing())
         .manage(config)
