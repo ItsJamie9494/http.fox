@@ -40,7 +40,7 @@ pub struct GlobalCtx<'a> {
 
 const GLOBAL_CONTEXT: GlobalCtx<'static> = GlobalCtx {
     title: "http.fox",
-    base_url: "http://127.0.0.1",
+    base_url: "http://localhost:8000",
 };
 
 /// Create a new Context object with the Global context set
