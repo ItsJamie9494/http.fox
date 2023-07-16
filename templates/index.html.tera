@@ -8,7 +8,7 @@
     id="usage_box">{{ global.base_url }}/[status_code]<button title="Copy to Clipboard" class="flex p-2 h-10 rounded-lg bg-orange-300 hover:bg-orange-200 transition-all text-black" id="copy_clipboard_btn"><img alt="Copy to clipboard icon" class="w-8 invert transition-all" loading="lazy" decoding="async" src="/static/img/copy.svg"/></button></pre>
 
 <p><span class="font-bold">Note:</span> If your webserver requires an extension at the end of the URL, just add
-<span class="font-mono p-1 bg-slate-300 dark:bg-slate-500 text-black dark:text-white rounded" >.png</pre>
+<span class="font-mono p-1 bg-slate-300 dark:bg-slate-500 text-black dark:text-white rounded" >.png</span>
 </p>
 
 <main class="grid grid-cols-3 gap-4 my-4">
