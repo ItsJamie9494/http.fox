@@ -4,21 +4,43 @@
 
 <h2 class="text-2xl">Usage:</h2>
 
-<pre class="px-5 py-3 rounded bg-slate-500 text-white m-1 flex justify-between items-center transition-all"
-    id="usage_box">{{ global.base_url }}/[status_code]<button title="Copy to Clipboard" class="flex p-2 h-10 rounded-lg bg-red-400 hover:bg-red-300 transition-colors" id="copy_clipboard_btn"><img alt="Copy to clipboard icon" class="w-8" loading="lazy" decoding="async" src="/static/img/copy.svg"/></button></pre>
+<pre class="px-5 py-3 rounded bg-slate-300 dark:bg-slate-500 text-black dark:text-white my-2 flex justify-between items-center transition-all"
+    id="usage_box">{{ global.base_url }}/[status_code]<button title="Copy to Clipboard" class="flex p-2 h-10 rounded-lg bg-orange-300 hover:bg-orange-200 transition-all text-black" id="copy_clipboard_btn"><img alt="Copy to clipboard icon" class="w-8 invert transition-all" loading="lazy" decoding="async" src="/static/img/copy.svg"/></button></pre>
 
-<main class="grid grid-cols-3 gap-4">
+<p><span class="font-bold">Note:</span> If your webserver requires an extension at the end of the URL, just add
+<span class="font-mono p-1 bg-slate-300 dark:bg-slate-500 text-black dark:text-white rounded" >.png</pre>
+</p>
+
+<main class="grid grid-cols-3 gap-4 my-4">
     {% for code in codes %}
 
-        <div>
-            <a href="/status/{{ code.0 }}">
-                <i class="bg-center bg-no-repeat bg-cover overflow-hidden" style="background-image:url(/static/images/{{ code.0 }}.png)"></i>
-                <div class="space-y-1">
-                    <h3 class="text-lg">{{ code.0 }}</h3>
-                    <p class="text-base">{{ code.1 }}</p>
-                </div>
-            </a>
-        </div>
+    <div>
+        <a href="/status/{{ code.0 }}" class="w-8 h-8 group text-black dark:text-white transition-all">
+            <div class="bg-center bg-no-repeat overflow-hidden w-full h-32 rounded-t-lg"
+                style="background-size: 135%;background-image:url(/{{ code.0 }}.png)"></div>
+            <div
+                class="bg-orange-400 dark:bg-orange-800 group-hover:bg-orange-300 dark:group-hover:bg-orange-700 px-5 py-3 rounded-b-lg transition-all">
+                <h3 class="text-xl font-bold">{{ code.0 }}</h3>
+                <p class="text-base">{{ code.1 }}</p>
+            </div>
+        </a>
+    </div>
+
+    {% endfor %}
+</main>
+
+<h2 class="text-2xl mt-2">Want to contribute?</h2>
+<p>We're still missing these codes. If you'd like to add one, <a class="hover:underline contrast-50"
+        href="https://github.com/ItsJamie9494/http.fox">please
+        submit a PR</a>.</p>
+
+<main class="grid grid-cols-6 gap-4 my-2">
+    {% for code in missing_codes %}
+
+    <div
+        class="bg-orange-400 dark:bg-orange-800 group-hover:bg-orange-300 dark:group-hover:bg-orange-700 px-5 py-3 rounded-lg flex justify-center cursor-default transition-all">
+        <h3 class="text-xl">{{ code }}</h3>
+    </div>
 
     {% endfor %}
 </main>
