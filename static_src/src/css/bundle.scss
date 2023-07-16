@@ -1,1 +1,11 @@
 @import "./tailwind";
+
+.warning::before {
+    content: "⚠️";
+    margin-right: .5em;
+}
+
+.deprecated::before {
+    content: "✕";
+    margin-right: .5em;
+}

@@ -1,0 +1,20 @@
+{% macro unofficial() %}
+<aside class="warning rounded-lg bg-yellow-200 w-full flex px-5 py-3">
+    <p><span class="font-bold">Unofficial:</span> This HTTP status code is not specified by any RFC.</p>
+</aside>
+{% endmacro unofficial %}
+
+{% macro deprecated() %}
+<aside class="deprecated rounded-lg bg-red-900 w-full flex px-5 py-3 text-white">
+    <p><span class="font-bold">Deprecated:</span> This status code is deprecated. It is likely that clients will ignore
+        this code, and it should not be used in any newly written code.</p>
+</aside>
+{% endmacro deprecated %}
+
+{% macro pre(text) %}
+<span class="font-mono p-1 bg-slate-300 dark:bg-slate-500 text-black dark:text-white rounded">{{ text }}</span>
+{% endmacro pre %}
+
+{% macro link(href, text) %}
+<a class="hover:underline contrast-50" href="{{ href }}" rel="noopener" target="_blank">{{ text }}</a>
+{% endmacro pre %}
