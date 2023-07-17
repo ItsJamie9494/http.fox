@@ -38,3 +38,10 @@
 {% macro link(href, text) %}
 <a class="hover:underline contrast-50" href="{{ href }}" rel="noopener" target="_blank">{{ text }}</a>
 {% endmacro pre %}
+
+{% macro header(header) %}
+<li>
+    <a class="hover:underline contrast-50" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/{{ header }}"
+        rel="noopener" target="_blank">{{ header }} Header</a>
+</li>
+{% endmacro header %}
