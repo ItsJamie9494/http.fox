@@ -30,13 +30,13 @@ This section contains the main body of the status page. It can contain other HTM
 {% block see_also %}
 
 <li>
-    {{ utils::link(href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/102", text="102 Processing") }}
+    {% include "components/mdnspec" %}
 </li>
 
 {% endblock see_also %}
 ```
 
-This section contains an unordered list of URLs. It should only contain `<li>` elements, and these elements should have a body created by the `link(href, text)` macro.
+This section contains an unordered list of URLs. It is designed to have `header(header)` macros, the `mdnspec` component, and `<li>` elements with a body consisting of the `link(href, text)` macro.
 
 ## Available Macros
 
@@ -55,11 +55,55 @@ This section contains an unordered list of URLs. It should only contain `<li>` e
     Formats text in a monospace box.
 - `link(href, text)`:
     Creates a styled link that opens in a new tab
+- `header(header)`:
+    Creates a styled link to MDN with the specified header
 
-## Importing Macros
+
+### Importing Macros
 
 All macros are stored in `utils.html.tera`.
 
 ```jinja
 {% import "statuses/utils" as utils %}
+```
+
+## Available Components
+
+All components are stored in `/templates/components`
+
+- `mdnspec`
+    Creates a link to the MDN documentation on the current status. It is intended to be used in the [See Also](#see_also) section
+
+### Importing Components
+
+```jinja
+{% include "components/<COMPONENT_NAME>" %}
+```
+
+## Available Variables
+
+- `global`
+  - `global.title`:
+    The title of the site (usually http.fox)
+  - `global.base_url`:
+    The base URL of the site (usually https://httpfox.gay or localhost:8000)
+- `code`:
+    Status code (like 404)
+- `message`:
+    Status message (like Not Found)
+- `credits`
+  - `credits.name`:
+    Name of person providing fox image
+  - `credits.url`:
+    A URL linking to the person providing fox image
+  - `credits.code`:
+    Status code (like 404)
+> **NOTE**: `credits.code` is mostly used internally, and should not be used in any status pages
+
+### Using Variables
+
+> **NOTE**: Variables cannot be used inside of macros
+
+```jinja
+{{ variable_name }}
 ```
