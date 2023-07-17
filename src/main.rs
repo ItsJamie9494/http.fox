@@ -5,8 +5,11 @@ use config::Config;
 use error::error_catchers;
 use rocket::{fs::NamedFile, State};
 use rocket_dyn_templates::{context, Template};
-use std::path::{Path, PathBuf};
-use std::str::FromStr;
+use std::{
+    fs::read_to_string,
+    path::{Path, PathBuf},
+    str::FromStr,
+};
 
 pub mod config;
 pub mod credits;
@@ -74,19 +77,24 @@ async fn img_raw(img: &str, config: &State<Config>) -> Option<NamedFile> {
 async fn status_details(code: &str, config: &State<Config>) -> Option<Template> {
     if config.status.status_exists(code) {
         let message = config.status.message(code)?;
-        println!("{message}");
+
+        let desc = read_to_string(format!("data/{code}.md")).ok()?;
+        let parser = pulldown_cmark::Parser::new(&desc);
+        let mut description = String::new();
+        pulldown_cmark::html::push_html(&mut description, parser);
+
         let credits = config
             .credits
             .clone()
             .search_credits(i32::from_str(code).ok()?)?;
-        println!("{:#?}", credits);
         Some(Template::render(
-            format!("statuses/{code}"),
+            format!("statuses/status"),
             context! {
                 global: config::context(),
                 code,
                 message,
-                credits
+                credits,
+                description
             },
         ))
     } else {

@@ -8,6 +8,8 @@ const STATUS_JSON: &[u8] = include_bytes!("status.json");
 pub struct Status {
     pub name: String,
     pub official: bool,
+    pub header: Option<Vec<String>>,
+    pub links: Vec<(String, String)>,
 }
 
 #[derive(Debug)]
@@ -30,6 +32,8 @@ fn parse_json() -> Result<(HashMap<String, Status>, Vec<i32>), Box<dyn Error>> {
         not_impl.push(item);
     }
 
+    not_impl.sort();
+
     Ok((value.available, not_impl))
 }
 
@@ -45,7 +49,6 @@ impl Default for Statuses {
 
 impl Statuses {
     fn search_status(&self, status: &str) -> Option<(&String, &Status)> {
-        println!("{:#?}", self);
         self.list.get_key_value(status)
     }
 
@@ -54,9 +57,7 @@ impl Statuses {
     }
 
     pub fn message(&self, status: &str) -> Option<&String> {
-        println!("{:#?}", self);
         if let Some(status) = self.search_status(status) {
-            println!("{:#?}", status);
             Some(&status.1.name)
         } else {
             None
@@ -67,7 +68,14 @@ impl Statuses {
         self.not_implemented_list.clone()
     }
 
-    pub fn all_statuses(&self) -> HashMap<String, Status> {
-        self.list.clone()
+    pub fn all_statuses(&self) -> Vec<(String, Status)> {
+        let mut list = self
+            .list
+            .clone()
+            .into_iter()
+            .collect::<Vec<(String, Status)>>();
+
+        list.sort_by(|a, b| a.0.cmp(&b.0));
+        return list;
     }
 }

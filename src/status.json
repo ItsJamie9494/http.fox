@@ -2,111 +2,349 @@
     "available": {
         "100": {
             "name": "Continue",
-            "official": true
+            "official": true,
+            "header": [
+                "Expect"
+            ],
+            "links": [
+                [
+                    "https://www.rfc-editor.org/rfc/rfc9110#status.100",
+                    "Spec"
+                ]
+            ]
         },
         "101": {
             "name": "Switching Protocols",
-            "official": true
+            "official": true,
+            "header": [
+                "Upgrade"
+            ],
+            "links": [
+                [
+                    "https://www.rfc-editor.org/rfc/rfc9110#status.101",
+                    "Spec"
+                ],
+                [
+                    "https://developer.mozilla.org/en-US/docs/Web/HTTP/Protocol_upgrade_mechanism",
+                    "Protocol upgrade mechanism"
+                ],
+                [
+                    "https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API",
+                    "WebSockets"
+                ]
+            ]
         },
         "102": {
             "name": "Processing",
-            "official": true
+            "official": true,
+            "header": [
+                "Expect"
+            ],
+            "links": [
+                [
+                    "https://tools.ietf.org/html/rfc2518#section-10.1",
+                    "Spec"
+                ]
+            ]
         },
         "103": {
             "name": "Early Hints",
-            "official": true
+            "official": true,
+            "header": [
+                "Content-Security-Policy",
+                "Link"
+            ],
+            "links": [
+                [
+                    "https://html.spec.whatwg.org/multipage/semantics.html#early-hints",
+                    "Spec"
+                ]
+            ]
         },
         "200": {
             "name": "OK",
-            "official": true
+            "official": true,
+            "links": [
+                [
+                    "https://www.rfc-editor.org/rfc/rfc9110#status.200",
+                    "Spec"
+                ],
+                [
+                    "https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods",
+                    "HTTP Request Methods"
+                ]
+            ]
         },
         "201": {
             "name": "Created",
-            "official": true
+            "official": true,
+            "links": [
+                [
+                    "https://www.rfc-editor.org/rfc/rfc9110#status.201",
+                    "Spec"
+                ]
+            ]
         },
         "202": {
             "name": "Accepted",
-            "official": true
+            "official": true,
+            "header": [
+                "Accept"
+            ],
+            "links": [
+                [
+                    "https://www.rfc-editor.org/rfc/rfc9110#status.202",
+                    "Spec"
+                ]
+            ]
         },
         "203": {
             "name": "Non-Authoritative Information",
-            "official": true
+            "official": true,
+            "header": [
+                "Warning"
+            ],
+            "links": [
+                [
+                    "https://www.rfc-editor.org/rfc/rfc9110#status.203",
+                    "Spec"
+                ],
+                [
+                    "https://developer.mozilla.org/en-US/docs/Glossary/Proxy_server",
+                    "Proxy server"
+                ]
+            ]
         },
         "206": {
             "name": "Partial Content",
-            "official": true
+            "official": true,
+            "header": [
+                "If-Range",
+                "Range",
+                "Content-Range",
+                "Content-Type"
+            ],
+            "links": [
+                [
+                    "https://www.rfc-editor.org/rfc/rfc9110#status.206",
+                    "Spec"
+                ]
+            ]
         },
         "207": {
             "name": "Multi-Status",
-            "official": true
+            "official": true,
+            "links": [
+                [
+                    "https://www.rfc-editor.org/rfc/rfc4918#section-11.1",
+                    "Spec"
+                ],
+                [
+                    "https://developer.mozilla.org/en-US/docs/Glossary/WebDAV",
+                    "WebDAV"
+                ],
+                [
+                    "https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods",
+                    "HTTP Request Methods"
+                ]
+            ]
         },
         "300": {
             "name": "Multiple Choices",
-            "official": true
+            "official": true,
+            "links": [
+                [
+                    "https://www.rfc-editor.org/rfc/rfc9110#status.300",
+                    "Spec"
+                ]
+            ]
         },
         "301": {
             "name": "Moved Permanently",
-            "official": true
+            "official": true,
+            "links": [
+                [
+                    "https://www.rfc-editor.org/rfc/rfc9110#status.301",
+                    "Spec"
+                ]
+            ]
         },
         "302": {
             "name": "Found",
-            "official": true
+            "official": true,
+            "links": [
+                [
+                    "https://www.rfc-editor.org/rfc/rfc9110#status.303",
+                    "Spec"
+                ]
+            ]
         },
         "303": {
             "name": "See Other",
-            "official": true
+            "official": true,
+            "links": [
+                [
+                    "https://www.rfc-editor.org/rfc/rfc9110#status.303",
+                    "Spec"
+                ]
+            ]
         },
         "400": {
             "name": "Bad Request",
-            "official": true
+            "official": true,
+            "links": [
+                [
+                    "https://www.rfc-editor.org/rfc/rfc9110#status.400",
+                    "Spec"
+                ]
+            ]
         },
         "402": {
             "name": "Payment Required",
-            "official": true
+            "official": true,
+            "links": [
+                [
+                    "https://www.rfc-editor.org/rfc/rfc9110#status.402",
+                    "Spec"
+                ],
+                [
+                    "https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication",
+                    "HTTP Authentication"
+                ]
+            ]
         },
         "404": {
             "name": "Not Found",
-            "official": true
+            "official": true,
+            "links": [
+                [
+                    "https://www.rfc-editor.org/rfc/rfc9110#status.400",
+                    "Spec"
+                ],
+                [
+                    "https://en.wikipedia.org/wiki/HTTP_404",
+                    "Wikipedia: HTTP 404"
+                ],
+                [
+                    "https://en.wikipedia.org/wiki/Link_rot",
+                    "Wikipedia: Link rot"
+                ]
+            ]
         },
         "405": {
             "name": "Method Not Allowed",
-            "official": true
+            "official": true,
+            "links": [
+                [
+                    "https://www.rfc-editor.org/rfc/rfc9110#status.405",
+                    "Spec"
+                ]
+            ]
         },
         "408": {
             "name": "Request Timeout",
-            "official": true
+            "official": true,
+            "header": [
+                "Connection",
+                "X-DNS-Prefetch-Control"
+            ],
+            "links": [
+                [
+                    "https://www.rfc-editor.org/rfc/rfc9110#status.408",
+                    "Spec"
+                ]
+            ]
         },
         "409": {
             "name": "Conflict",
-            "official": true
+            "official": true,
+            "links": [
+                [
+                    "https://www.rfc-editor.org/rfc/rfc9110#status.409",
+                    "Spec"
+                ]
+            ]
         },
         "421": {
             "name": "Misdirected Request",
-            "official": true
+            "official": true,
+            "links": [
+                [
+                    "https://www.rfc-editor.org/rfc/rfc9110#status.421",
+                    "Spec"
+                ]
+            ]
         },
         "429": {
             "name": "Too Many Requests",
-            "official": true
+            "official": true,
+            "header": [
+                "Retry-After"
+            ],
+            "links": [
+                [
+                    "https://datatracker.ietf.org/doc/html/rfc6585#section-4",
+                    "Spec"
+                ]
+            ]
         },
         "508": {
             "name": "Loop Detected",
-            "official": true
+            "official": true,
+            "links": [
+                [
+                    "https://www.rfc-editor.org/rfc/rfc5842#section-7.2",
+                    "Spec"
+                ],
+                [
+                    "https://developer.mozilla.org/en-US/docs/Glossary/WebDAV",
+                    "WebDAV"
+                ]
+            ]
         },
         "509": {
             "name": "Bandwidth Limit Exceeded",
-            "official": false
+            "official": false,
+            "links": [
+                [
+                    "https://documentation.cpanel.net/display/CKB/HTTP+Error+Codes+and+Quick+Fixes",
+                    "cPanel Docs"
+                ]
+            ]
         },
         "521": {
             "name": "Web Server Is Down",
-            "official": false
+            "official": false,
+            "links": [
+                [
+                    "https://developers.cloudflare.com/support/troubleshooting/cloudflare-errors/troubleshooting-cloudflare-5xx-errors/#error-521-web-server-is-down",
+                    "Cloudflare Docs"
+                ]
+            ]
         },
         "525": {
             "name": "SSL Handshake Failed",
-            "official": false
+            "official": false,
+            "links": [
+                [
+                    "https://developers.cloudflare.com/support/troubleshooting/cloudflare-errors/troubleshooting-cloudflare-5xx-errors/#error-525-ssl-handshake-failed",
+                    "Cloudflare Docs"
+                ],
+                [
+                    "https://www.cloudflare.com/learning/ssl/what-happens-in-a-tls-handshake/https://www.cloudflare.com/learning/ssl/what-happens-in-a-tls-handshake/",
+                    "SSL Handshake"
+                ]
+            ]
         },
         "530": {
             "name": "Site Frozen",
-            "official": false
+            "official": false,
+            "links": [
+                [
+                    "https://developers.cloudflare.com/support/troubleshooting/cloudflare-errors/troubleshooting-cloudflare-5xx-errors/#error-530",
+                    "Cloudflare Docs"
+                ]
+            ]
         }
     },
     "unavailable": [

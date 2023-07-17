@@ -1,0 +1,28 @@
+{% extends "statuses/base" %}
+{% import "statuses/utils" as utils %}
+
+{% block description %}
+
+{{ description|safe }}
+
+{% endblock description %}
+
+{% block see_also %}
+
+{% if config.links %}
+    {% for link in config.links %}
+        <li>
+            {{ utils::link(href=link.0, text=link.1) }}
+        </li>
+    {% endfor %}
+{% endif %}
+
+{% if config.header %}
+    {% for header in config.headers %}
+        {{ utils::header(header=header) }}
+    {% endfor %}
+{% endif %}
+
+{% include "components/mdnspec" %}
+
+{% endblock see_also %}
