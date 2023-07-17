@@ -31,7 +31,8 @@
 {% endmacro note %}
 
 {% macro pre(text) %}
-<span class="font-mono p-1 bg-slate-300 dark:bg-slate-500 text-black dark:text-white rounded">{{ text }}</span>
+<span class="font-mono p-1 bg-slate-300 dark:bg-slate-500 text-black dark:text-white rounded transition-all">{{ text
+    }}</span>
 {% endmacro pre %}
 
 {% macro link(href, text) %}
