@@ -1,11 +1,11 @@
 {
     "available": {
         "102": "Processing",
-        "202": "?Accepted",
+        "202": "Accepted",
         "207": "Multi-Status",
-        "400": "?Bad Request",
+        "400": "Bad Request",
         "402": "Payment Required",
-        "405": "?Method Not Allowed",
+        "405": "Method Not Allowed",
         "408": "Request Timeout",
         "409": "Conflict",
         "421": "Misdirected Request",
