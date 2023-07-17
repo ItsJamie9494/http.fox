@@ -45,14 +45,9 @@ impl Default for CreditsList {
 
 impl CreditsList {
     pub fn search_credits(self, status: i32) -> Option<Credits> {
-        let search = self
-            .list
-            .binary_search_by(|credit| match credit.codes.contains(&status) {
-                true => std::cmp::Ordering::Equal,
-                false => std::cmp::Ordering::Less,
-            });
+        let search = self.list.iter().position(|x| x.codes.contains(&status));
 
-        if let Ok(pos) = search {
+        if let Some(pos) = search {
             self.list.get(pos).cloned()
         } else {
             None
