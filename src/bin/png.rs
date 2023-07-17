@@ -1,12 +1,10 @@
-use std::error::Error;
-use std::str::FromStr;
-
 use httpfox::{config::Config, png::Png};
+use std::error::Error;
 
 fn make_image(config: &Config, file_name: &str) -> Result<(), Box<dyn Error>> {
     println!("Converting image {file_name}");
 
-    let status_code = i32::from_str(&file_name.replace("_raw", ""))?;
+    let status_code = file_name.replace("_raw", "");
 
     match Png::new(&config, status_code) {
         Some(png) => {

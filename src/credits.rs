@@ -10,7 +10,7 @@ pub struct CreditsList {
     list: Vec<Credits>,
 }
 
-#[derive(Serialize, Deserialize, Clone)]
+#[derive(Serialize, Debug, Deserialize, Clone)]
 pub struct Credits {
     name: String,
     url: String,

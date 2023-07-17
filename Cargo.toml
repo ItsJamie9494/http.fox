@@ -13,6 +13,7 @@ name = "httpfox"
 [dependencies]
 base64 = "0.21.2"
 image = "0.24.6"
+pulldown-cmark = "0.9.3"
 resvg = "0.35.0"
 rocket = "=0.5.0-rc.3"
 rocket_dyn_templates = { version = "0.1.0-rc.3", features = ["tera"] }

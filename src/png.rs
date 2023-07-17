@@ -17,20 +17,20 @@ const IMAGE_TEMPLATE: &'static str = include_str!("include/template.svg");
 
 /// Handle the creation of PNGs for each image
 pub struct Png {
-    pub status: i32,
+    pub status: String,
     img_dir: PathBuf,
     raw_img_dir: PathBuf,
     statuses: Statuses,
 }
 
 impl Png {
-    pub fn new(config: &Config, status: i32) -> Option<Self> {
+    pub fn new(config: &Config, status: String) -> Option<Self> {
         let statuses = Statuses::default();
 
         let img_dir = config.images_dir.clone();
         let raw_img_dir = config.raw_images_dir.clone();
 
-        if statuses.status_exists(status) {
+        if statuses.status_exists(&status) {
             Some(Self {
                 status,
                 img_dir,
@@ -43,8 +43,8 @@ impl Png {
     }
 
     pub fn image(&self) -> PathBuf {
-        let mut img_dir = self.img_dir.clone(); 
-        
+        let mut img_dir = self.img_dir.clone();
+
         self.create_image().expect("Could not create image");
 
         img_dir.push(format!("{}.png", self.status));
@@ -75,7 +75,7 @@ impl Png {
             .replace(
                 "__MESSAGE",
                 self.statuses
-                    .message(self.status)
+                    .message(&self.status)
                     .expect("Status does not exist"),
             );
         let mut font_db = fontdb::Database::new();

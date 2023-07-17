@@ -1,32 +1,113 @@
 {
     "available": {
-        "100": "Continue",
-        "101": "Switching Protocols",
-        "102": "Processing",
-        "103": "Early Hints",
-        "200": "OK",
-        "201": "Created",
-        "202": "Accepted",
-        "203": "Non-Authoritative Information",
-        "206": "Partial Content",
-        "207": "Multi-Status",
-        "300": "Multiple Choices",
-        "301": "Moved Permanently",
-        "302": "Found",
-        "303": "See Other",
-        "400": "Bad Request",
-        "402": "Payment Required",
-        "404": "Not Found",
-        "405": "Method Not Allowed",
-        "408": "Request Timeout",
-        "409": "Conflict",
-        "421": "Misdirected Request",
-        "429": "Too Many Requests",
-        "508": "Loop Detected",
-        "509": "Bandwidth Limit Exceeded",
-        "521": "Web Server Is Down",
-        "525": "SSL Handshake Failed",
-        "530": "Site Frozen"
+        "100": {
+            "name": "Continue",
+            "official": true
+        },
+        "101": {
+            "name": "Switching Protocols",
+            "official": true
+        },
+        "102": {
+            "name": "Processing",
+            "official": true
+        },
+        "103": {
+            "name": "Early Hints",
+            "official": true
+        },
+        "200": {
+            "name": "OK",
+            "official": true
+        },
+        "201": {
+            "name": "Created",
+            "official": true
+        },
+        "202": {
+            "name": "Accepted",
+            "official": true
+        },
+        "203": {
+            "name": "Non-Authoritative Information",
+            "official": true
+        },
+        "206": {
+            "name": "Partial Content",
+            "official": true
+        },
+        "207": {
+            "name": "Multi-Status",
+            "official": true
+        },
+        "300": {
+            "name": "Multiple Choices",
+            "official": true
+        },
+        "301": {
+            "name": "Moved Permanently",
+            "official": true
+        },
+        "302": {
+            "name": "Found",
+            "official": true
+        },
+        "303": {
+            "name": "See Other",
+            "official": true
+        },
+        "400": {
+            "name": "Bad Request",
+            "official": true
+        },
+        "402": {
+            "name": "Payment Required",
+            "official": true
+        },
+        "404": {
+            "name": "Not Found",
+            "official": true
+        },
+        "405": {
+            "name": "Method Not Allowed",
+            "official": true
+        },
+        "408": {
+            "name": "Request Timeout",
+            "official": true
+        },
+        "409": {
+            "name": "Conflict",
+            "official": true
+        },
+        "421": {
+            "name": "Misdirected Request",
+            "official": true
+        },
+        "429": {
+            "name": "Too Many Requests",
+            "official": true
+        },
+        "508": {
+            "name": "Loop Detected",
+            "official": true
+        },
+        "509": {
+            "name": "Bandwidth Limit Exceeded",
+            "official": false
+        },
+        "521": {
+            "name": "Web Server Is Down",
+            "official": false
+        },
+        "525": {
+            "name": "SSL Handshake Failed",
+            "official": false
+        },
+        "530": {
+            "name": "Site Frozen",
+            "official": false
+        }
     },
     "unavailable": [
         204,

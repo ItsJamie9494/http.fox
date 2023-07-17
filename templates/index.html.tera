@@ -21,7 +21,7 @@
             <div
                 class="bg-orange-400 dark:bg-orange-800 group-hover:bg-orange-300 dark:group-hover:bg-orange-700 px-5 py-3 rounded-b-lg transition-all">
                 <h3 class="text-xl font-bold">{{ code.0 }}</h3>
-                <p class="text-base">{{ code.1 }}</p>
+                <p class="text-base">{{ code.1.name }}</p>
             </div>
         </a>
     </div>
