@@ -1,0 +1,27 @@
+{% extends "statuses/base" %}
+{% import "statuses/utils" as utils %}
+
+{% block description %}
+
+The HTTP {{ utils::pre(text="201 Created") }} success status response code indicates that the request has succeeded and
+has led to the creation of a resource. The new resource, or a description and link to the new resource, is effectively
+created before the response is sent back
+and the newly created items are returned in the body of the message, located at either the URL of the request, or at the
+URL in the value of the {{ utils::pre(text="Location") }} header.
+<br /><br />
+The common use case of this status code is as the result of a {{ utils::pre(text="POST") }} request.
+
+{% endblock description %}
+
+{% block see_also %}
+
+<li>
+    {{ utils::link(href="https://www.rfc-editor.org/rfc/rfc9110#status.201", text="Spec") }}
+</li>
+<li>
+    {{ utils::link(href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods", text="HTTP Request Methods")
+    }}
+</li>
+{% include "components/mdnspec" %}
+
+{% endblock see_also %}

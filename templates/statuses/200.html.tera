@@ -1,0 +1,38 @@
+{% extends "statuses/base" %}
+{% import "statuses/utils" as utils %}
+
+{% block description %}
+
+The HTTP {{ utils::pre(text="200 OK") }} success status response code indicates that the request has succeeded. A 200
+response is cacheable by default.
+<br /><br />
+The meaning of a success depends on the HTTP request method:
+
+<ul class="ml-4 mb-4 list-disc">
+    <li>{{ utils::pre(text="GET") }}: The resource has been fetched and is transmitted in the message body.</li>
+    <li>{{ utils::pre(text="HEAD") }}: The representation headers are included in the response without any message body
+    </li>
+    <li>{{ utils::pre(text="POST") }}: The resource describing the result of the action is transmitted in the message
+        body</li>
+    <li>{{ utils::pre(text="TRACE") }}: The message body contains the request message as received by the server.</li>
+</ul>
+
+The successful result of a {{ utils::pre(text="PUT") }} or a {{ utils::pre(text="DELETE") }} is often not a {{
+utils::pre(text="200 OK") }} but a {{ utils::pre(text="204 No Content") }} (or a {{ utils::pre(text="201 Created") }}
+when the resource is uploaded for the first time).
+<div class="mb-4"></div>
+
+{% endblock description %}
+
+{% block see_also %}
+
+<li>
+    {{ utils::link(href="https://www.rfc-editor.org/rfc/rfc9110#status.200", text="Spec") }}
+</li>
+<li>
+    {{ utils::link(href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods", text="HTTP Request Methods")
+    }}
+</li>
+{% include "components/mdnspec" %}
+
+{% endblock see_also %}

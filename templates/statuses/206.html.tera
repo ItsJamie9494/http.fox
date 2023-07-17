@@ -1,0 +1,31 @@
+{% extends "statuses/base" %}
+{% import "statuses/utils" as utils %}
+
+{% block description %}
+
+The HTTP {{ utils::pre(text="206 Partial Content") }} success status response code indicates that the request has
+succeeded and the body contains the requested ranges of data, as described in the {{ utils::pre(text="Range") }} header
+of the request.
+<br /><br />
+If there is only one range, the {{ utils::pre(text="Content-Type") }} of the whole response is set to the type of the
+document, and a
+{{ utils::pre(text="Content-Range") }} is provided.
+<br /><br />
+If several ranges are sent back, the {{ utils::pre(text="Content-Type") }} is set to multipart/byteranges and each
+fragment covers one range,
+with {{ utils::pre(text="Content-Range") }} and {{ utils::pre(text="Content-Type") }} describing it.
+
+{% endblock description %}
+
+{% block see_also %}
+
+<li>
+    {{ utils::link(href="https://www.rfc-editor.org/rfc/rfc9110#status.206", text="Spec") }}
+</li>
+{{ utils::header(header="If-Range") }}
+{{ utils::header(header="Range") }}
+{{ utils::header(header="Content-Range") }}
+{{ utils::header(header="Content-Type") }}
+{% include "components/mdnspec" %}
+
+{% endblock see_also %}

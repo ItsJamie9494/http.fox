@@ -18,5 +18,23 @@
             525,
             530
         ]
+    },
+    "ancuruadh": {
+        "name": "AnCuRuadh",
+        "url": "https://awwter.online/@AnCuRuadh",
+        "codes": [
+            100,
+            101,
+            103,
+            200,
+            201,
+            203,
+            206,
+            300,
+            301,
+            302,
+            303,
+            404
+        ]
     }
 }

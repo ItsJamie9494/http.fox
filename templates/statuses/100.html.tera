@@ -1,0 +1,23 @@
+{% extends "statuses/base" %}
+{% import "statuses/utils" as utils %}
+
+{% block description %}
+
+The HTTP {{ utils::pre(text="100 Continue") }} informational status response code indicates that everything so far is OK
+and that the client should continue with the request or ignore it if it is already finished.
+<br /><br />
+To have a server check the request's headers, a client must send {{ utils::pre(text="Expect: 100-continue") }} as a
+header in its initial request
+and receive a {{ utils::pre(text="100 Continue") }} status code in response before sending the body.
+
+{% endblock description %}
+
+{% block see_also %}
+
+<li>
+    {{ utils::link(href="https://www.rfc-editor.org/rfc/rfc9110#status.100", text="Spec") }}
+</li>
+{{ utils::header(header="Expect") }}
+{% include "components/mdnspec" %}
+
+{% endblock see_also %}

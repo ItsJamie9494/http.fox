@@ -1,0 +1,28 @@
+{% extends "statuses/base" %}
+{% import "statuses/utils" as utils %}
+
+{% block description %}
+
+The HTTP {{ utils::pre(text="203 Non-Authoritative Information") }} response status indicates that the request was
+successful but the enclosed
+payload has been modified by a transforming proxy from that of the origin server's {{ utils::pre(text="200 OK") }}
+response.
+<br /><br />
+The 203 response is similar to the value {{ utils::pre(text="214") }}, meaning {{ utils::pre(text="Transformation
+Applied") }}, of the Warning header code, which has the
+additional advantage of being applicable to responses with any status code.
+
+{% endblock description %}
+
+{% block see_also %}
+
+<li>
+    {{ utils::link(href="https://www.rfc-editor.org/rfc/rfc9110#status.203", text="Spec") }}
+</li>
+<li>
+    {{ utils::link(href="https://developer.mozilla.org/en-US/docs/Glossary/Proxy_server", text="Proxy server") }}
+</li>
+{{ utils::header(header="Warning") }}
+{% include "components/mdnspec" %}
+
+{% endblock see_also %}
