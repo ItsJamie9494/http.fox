@@ -1,0 +1,7 @@
+{% import "statuses/utils" as utils %}
+
+<li>
+    <a class="hover:underline contrast-50" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/{{ code }}"
+        rel="noopener" target="_blank">{{ code }} {{
+        message }}</a>
+</li>
