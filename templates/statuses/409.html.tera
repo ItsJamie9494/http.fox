@@ -17,11 +17,6 @@ a file that is older than the existing one on the server, resulting in a version
 <li>
     {{ utils::link(href="https://www.rfc-editor.org/rfc/rfc9110#status.409", text="Spec") }}
 </li>
-<li>
-    {{ utils::link(href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/PUT", text="Put HTTP Method") }}
-</li>
-<li>
-    {{ utils::link(href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/409", text="409 Conflict") }}
-</li>
+{% include "components/mdnspec" %}
 
 {% endblock see_also %}

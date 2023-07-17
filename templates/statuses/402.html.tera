@@ -26,8 +26,6 @@ standard use convention exists and different entities use it in different contex
 <li>
     {{ utils::link(href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication", text="HTTP Authentication") }}
 </li>
-<li>
-    {{ utils::link(href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402", text="402 Payment Required") }}
-</li>
+{% include "components/mdnspec" %}
 
 {% endblock see_also %}

@@ -16,11 +16,7 @@ making a new request.
 <li>
     {{ utils::link(href="https://datatracker.ietf.org/doc/html/rfc6585#section-4", text="Spec") }}
 </li>
-<li>
-    {{ utils::link(href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After", text="Retry-After HTTP Header") }}
-</li>
-<li>
-    {{ utils::link(href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429", text="429 Too Many Requests") }}
-</li>
+{{ utils::header(header="Retry-After") }}
+{% include "components/mdnspec" %}
 
 {% endblock see_also %}

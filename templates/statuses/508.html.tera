@@ -7,7 +7,7 @@ The HTTP {{ utils::pre(text="508 Loop Detected") }} response status code may be 
 protocol.
 <br /><br />
 It indicates that the server terminated an operation because it encountered an infinite loop while processing a request
-with {{ utils::pre(text="Depth: infinity") }}. This status indicates that the entire operation failed.
+with "Depth: infinity". This status indicates that the entire operation failed.
 
 {% endblock description %}
 
@@ -20,8 +20,6 @@ with {{ utils::pre(text="Depth: infinity") }}. This status indicates that the en
     {{ utils::link(href="https://developer.mozilla.org/en-US/docs/Glossary/WebDAV", text="WebDAV")
     }}
 </li>
-<li>
-    {{ utils::link(href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/508", text="508 Loop Detected") }}
-</li>
+{% include "components/mdnspec" %}
 
 {% endblock see_also %}

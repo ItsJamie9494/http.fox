@@ -16,12 +16,7 @@ response. The field must contain a list of methods that the target resource curr
 <li>
     {{ utils::link(href="https://www.rfc-editor.org/rfc/rfc9110#status.405", text="Spec") }}
 </li>
-<li>
-    {{ utils::link(href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Allow", text="Allow HTTP Header")
-    }}
-</li>
-<li>
-    {{ utils::link(href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/405", text="405 Method Not Allowed") }}
-</li>
+{{ utils::header(header="Allow") }}
+{% include "components/mdnspec" %}
 
 {% endblock see_also %}

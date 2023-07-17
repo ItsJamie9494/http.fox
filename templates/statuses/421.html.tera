@@ -14,8 +14,6 @@ alternative service is selected.
 <li>
     {{ utils::link(href="https://www.rfc-editor.org/rfc/rfc9110#status.421", text="Spec") }}
 </li>
-<li>
-    {{ utils::link(href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/421", text="421 Misdirected Request") }}
-</li>
+{% include "components/mdnspec" %}
 
 {% endblock see_also %}

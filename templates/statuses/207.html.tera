@@ -27,7 +27,9 @@ multistatus root element. The XML body will list all individual response codes.
     }}
 </li>
 <li>
-    {{ utils::link(href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/207", text="207 Multi-Status") }}
+    {{ utils::link(href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods", text="HTTP Request Methods")
+    }}
 </li>
+{% include "components/mdnspec" %}
 
 {% endblock see_also %}

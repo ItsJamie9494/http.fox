@@ -18,10 +18,8 @@ invalid request message framing, or deceptive request routing).
 {% block see_also %}
 
 <li>
-    {{ utils::link(href="https://httpwg.org/specs/rfc9110.html#status.400", text="Spec") }}
+    {{ utils::link(href="https://www.rfc-editor.org/rfc/rfc9110#status.400", text="Spec") }}
 </li>
-<li>
-    {{ utils::link(href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400", text="400 Bad Request") }}
-</li>
+{% include "components/mdnspec" %}
 
 {% endblock see_also %}

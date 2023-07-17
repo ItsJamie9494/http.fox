@@ -22,12 +22,7 @@ request is not dead yet.
 <li>
     {{ utils::link(href="https://tools.ietf.org/html/rfc2518#section-10.1", text="Spec") }}
 </li>
-<li>
-    {{ utils::link(href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Expect", text="Expect HTTP Header")
-    }}
-</li>
-<li>
-    {{ utils::link(href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/102", text="102 Processing") }}
-</li>
+{{ utils::header(header="Expect") }}
+{% include "components/mdnspec" %}
 
 {% endblock see_also %}

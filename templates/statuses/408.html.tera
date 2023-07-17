@@ -27,17 +27,8 @@ mechanisms to speed up surfing.
 <li>
     {{ utils::link(href="https://www.rfc-editor.org/rfc/rfc9110#status.408", text="Spec") }}
 </li>
-<li>
-    {{ utils::link(href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Connection", text="Connection HTTP
-    Header")
-    }}
-</li>
-<li>
-    {{ utils::link(href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control",
-    text="X-DNS-Prefetch-Control HTTP Header") }}
-</li>
-<li>
-    {{ utils::link(href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/408", text="408 Request Timeout") }}
-</li>
+{{ utils::header(header="Connection") }}
+{{ utils::header(header="X-DNS-Prefetch-Control") }}
+{% include "components/mdnspec" %}
 
 {% endblock see_also %}
