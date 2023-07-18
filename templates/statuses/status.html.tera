@@ -1,6 +1,29 @@
 {% extends "statuses/base" %}
 {% import "statuses/utils" as utils %}
 
+{% block notices %}
+    {% if status.warning %}
+        {{ utils::warning(text=status.warning) }}
+    {% endif %}
+
+    {% if status.note %}
+        {{ utils::note(text=status.note) }}
+    {% endif %}
+
+    {% if status.deprecated %}
+        {{ utils::deprecated() }}
+    {% endif %}
+
+    {% if status.experimental %}
+        {{ utils::experimental() }}
+    {% endif %}
+
+    {% if status.unofficial %}
+        {{ utils::unofficial() }}
+    {% endif %}
+
+{% endblock %}
+
 {% block description %}
 
 {{ description|safe }}

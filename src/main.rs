@@ -76,6 +76,7 @@ async fn img_raw(img: &str, config: &State<Config>) -> Option<NamedFile> {
 #[get("/status/<code>")]
 async fn status_details(code: &str, config: &State<Config>) -> Option<Template> {
     if config.status.status_exists(code) {
+        let status = config.status.search_status(code)?;
         let message = config.status.message(code)?;
 
         let desc = read_to_string(format!("data/{code}.md")).ok()?;
@@ -87,6 +88,7 @@ async fn status_details(code: &str, config: &State<Config>) -> Option<Template> 
             .credits
             .clone()
             .search_credits(i32::from_str(code).ok()?)?;
+        println!("{:#?}", status);
         Some(Template::render(
             format!("statuses/status"),
             context! {
@@ -94,7 +96,8 @@ async fn status_details(code: &str, config: &State<Config>) -> Option<Template> 
                 code,
                 message,
                 credits,
-                description
+                description,
+                status: status.1
             },
         ))
     } else {

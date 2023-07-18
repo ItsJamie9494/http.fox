@@ -2,7 +2,6 @@
     "available": {
         "100": {
             "name": "Continue",
-            "official": true,
             "header": [
                 "Expect"
             ],
@@ -15,7 +14,6 @@
         },
         "101": {
             "name": "Switching Protocols",
-            "official": true,
             "header": [
                 "Upgrade"
             ],
@@ -36,7 +34,7 @@
         },
         "102": {
             "name": "Processing",
-            "official": true,
+            "deprecated": true,
             "header": [
                 "Expect"
             ],
@@ -49,7 +47,7 @@
         },
         "103": {
             "name": "Early Hints",
-            "official": true,
+            "experimental": true,
             "header": [
                 "Content-Security-Policy",
                 "Link"
@@ -63,7 +61,6 @@
         },
         "200": {
             "name": "OK",
-            "official": true,
             "links": [
                 [
                     "https://www.rfc-editor.org/rfc/rfc9110#status.200",
@@ -77,7 +74,6 @@
         },
         "201": {
             "name": "Created",
-            "official": true,
             "links": [
                 [
                     "https://www.rfc-editor.org/rfc/rfc9110#status.201",
@@ -87,7 +83,6 @@
         },
         "202": {
             "name": "Accepted",
-            "official": true,
             "header": [
                 "Accept"
             ],
@@ -100,7 +95,6 @@
         },
         "203": {
             "name": "Non-Authoritative Information",
-            "official": true,
             "header": [
                 "Warning"
             ],
@@ -117,7 +111,6 @@
         },
         "206": {
             "name": "Partial Content",
-            "official": true,
             "header": [
                 "If-Range",
                 "Range",
@@ -133,7 +126,7 @@
         },
         "207": {
             "name": "Multi-Status",
-            "official": true,
+            "note": "The ability to return a collection of resources is part of the WebDAV protocol (it may be received by web applications accessing a WebDAV server). Browsers accessing web pages will never encounter this status code.",
             "links": [
                 [
                     "https://www.rfc-editor.org/rfc/rfc4918#section-11.1",
@@ -151,7 +144,6 @@
         },
         "300": {
             "name": "Multiple Choices",
-            "official": true,
             "links": [
                 [
                     "https://www.rfc-editor.org/rfc/rfc9110#status.300",
@@ -161,7 +153,7 @@
         },
         "301": {
             "name": "Moved Permanently",
-            "official": true,
+            "note": "Although the specification requires the method and the body to remain unchanged when the redirection is performed, not all user-agents meet this requirement. Use the 301 code only as a response for GET or HEAD methods and use the 308 Permanent Redirect for POST methods instead, as the method change is explicitly prohibited with this status.",
             "links": [
                 [
                     "https://www.rfc-editor.org/rfc/rfc9110#status.301",
@@ -171,7 +163,6 @@
         },
         "302": {
             "name": "Found",
-            "official": true,
             "links": [
                 [
                     "https://www.rfc-editor.org/rfc/rfc9110#status.303",
@@ -181,7 +172,6 @@
         },
         "303": {
             "name": "See Other",
-            "official": true,
             "links": [
                 [
                     "https://www.rfc-editor.org/rfc/rfc9110#status.303",
@@ -191,7 +181,7 @@
         },
         "400": {
             "name": "Bad Request",
-            "official": true,
+            "warning": "The client should not repeat this request without modification.",
             "links": [
                 [
                     "https://www.rfc-editor.org/rfc/rfc9110#status.400",
@@ -201,7 +191,6 @@
         },
         "402": {
             "name": "Payment Required",
-            "official": true,
             "links": [
                 [
                     "https://www.rfc-editor.org/rfc/rfc9110#status.402",
@@ -215,7 +204,6 @@
         },
         "404": {
             "name": "Not Found",
-            "official": true,
             "links": [
                 [
                     "https://www.rfc-editor.org/rfc/rfc9110#status.400",
@@ -233,7 +221,6 @@
         },
         "405": {
             "name": "Method Not Allowed",
-            "official": true,
             "links": [
                 [
                     "https://www.rfc-editor.org/rfc/rfc9110#status.405",
@@ -243,7 +230,7 @@
         },
         "408": {
             "name": "Request Timeout",
-            "official": true,
+            "note": "Some servers merely shut down the connection without sending this message",
             "header": [
                 "Connection",
                 "X-DNS-Prefetch-Control"
@@ -257,7 +244,6 @@
         },
         "409": {
             "name": "Conflict",
-            "official": true,
             "links": [
                 [
                     "https://www.rfc-editor.org/rfc/rfc9110#status.409",
@@ -267,7 +253,6 @@
         },
         "421": {
             "name": "Misdirected Request",
-            "official": true,
             "links": [
                 [
                     "https://www.rfc-editor.org/rfc/rfc9110#status.421",
@@ -277,7 +262,6 @@
         },
         "429": {
             "name": "Too Many Requests",
-            "official": true,
             "header": [
                 "Retry-After"
             ],
@@ -290,7 +274,6 @@
         },
         "508": {
             "name": "Loop Detected",
-            "official": true,
             "links": [
                 [
                     "https://www.rfc-editor.org/rfc/rfc5842#section-7.2",
@@ -304,7 +287,7 @@
         },
         "509": {
             "name": "Bandwidth Limit Exceeded",
-            "official": false,
+            "unofficial": true,
             "links": [
                 [
                     "https://documentation.cpanel.net/display/CKB/HTTP+Error+Codes+and+Quick+Fixes",
@@ -314,7 +297,7 @@
         },
         "521": {
             "name": "Web Server Is Down",
-            "official": false,
+            "unofficial": true,
             "links": [
                 [
                     "https://developers.cloudflare.com/support/troubleshooting/cloudflare-errors/troubleshooting-cloudflare-5xx-errors/#error-521-web-server-is-down",
@@ -324,7 +307,7 @@
         },
         "525": {
             "name": "SSL Handshake Failed",
-            "official": false,
+            "unofficial": true,
             "links": [
                 [
                     "https://developers.cloudflare.com/support/troubleshooting/cloudflare-errors/troubleshooting-cloudflare-5xx-errors/#error-525-ssl-handshake-failed",
@@ -338,7 +321,7 @@
         },
         "530": {
             "name": "Site Frozen",
-            "official": false,
+            "unofficial": true,
             "links": [
                 [
                     "https://developers.cloudflare.com/support/troubleshooting/cloudflare-errors/troubleshooting-cloudflare-5xx-errors/#error-530",

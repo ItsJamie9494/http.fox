@@ -7,9 +7,16 @@ const STATUS_JSON: &[u8] = include_bytes!("status.json");
 #[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct Status {
     pub name: String,
-    pub official: bool,
+    #[serde(default)]
+    pub unofficial: bool,
+    #[serde(default)]
+    pub experimental: bool,
+    #[serde(default)]
+    pub deprecated: bool,
     pub header: Option<Vec<String>>,
     pub links: Vec<(String, String)>,
+    pub warning: Option<String>,
+    pub note: Option<String>,
 }
 
 #[derive(Debug)]
@@ -48,7 +55,7 @@ impl Default for Statuses {
 }
 
 impl Statuses {
-    fn search_status(&self, status: &str) -> Option<(&String, &Status)> {
+    pub fn search_status(&self, status: &str) -> Option<(&String, &Status)> {
         self.list.get_key_value(status)
     }
 

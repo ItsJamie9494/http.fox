@@ -23,8 +23,7 @@
         <main class="flex justify-center flex-col mb-4">
             <h1 class="text-center text-3xl my-3">{{ code }} {{ message }}</h1>
             <img class="w-full h-full max-w-3xl" alt="{{ message }}" loading="lazy" decoding="async"
-                src="/{{ code}}.png" />
-
+                    src="/{{ code}}.png" />
             <pre class="px-5 py-3 rounded bg-slate-300 dark:bg-slate-500 text-black dark:text-white my-2 flex justify-between items-center transition-all"
                 id="usage_box"><a href="{{ global.base_url }}/{{ code }}">{{ global.base_url }}/{{ code }}</a><button title="Copy to Clipboard" class="flex p-2 h-10 rounded-lg bg-orange-300 hover:bg-orange-200 transition-all text-black" id="copy_clipboard_btn"><img alt="Copy to clipboard icon" class="w-8 invert transition-all" loading="lazy" decoding="async" src="/static/img/copy.svg"/></button></pre>
 
