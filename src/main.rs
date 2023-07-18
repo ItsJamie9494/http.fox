@@ -88,7 +88,6 @@ async fn status_details(code: &str, config: &State<Config>) -> Option<Template> 
             .credits
             .clone()
             .search_credits(i32::from_str(code).ok()?)?;
-        println!("{:#?}", status);
         Some(Template::render(
             format!("statuses/status"),
             context! {
