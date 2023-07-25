@@ -1,4 +1,4 @@
-import { src, dest, task, parallel } from "gulp";
+import { src, dest, task, parallel, series, watch } from "gulp";
 /*css plugins*/
 import postcss from "gulp-postcss";
 import autoprefixer from "autoprefixer";
@@ -30,6 +30,11 @@ const plugins = [
 		],
 	}),
 ];
+
+task("watch", () => {
+	watch("src/css/*.scss", series(["build-css"]));
+	watch("src/js/*.ts", series(["transpile-ts"]));
+});
 
 task("build-css", () => {
 	return src("src/css/bundle.scss")
