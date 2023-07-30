@@ -128,8 +128,24 @@ pub async fn static_files(r#type: String, asset: PathBuf) -> Option<NamedFile> {
             }
             NamedFile::open(path).await.ok()
         }
+        "json" => {
+            let path = Path::new("./static/json").join(asset);
+            if path.is_dir() {
+                return None;
+            }
+            NamedFile::open(path).await.ok()
+        }
         _ => None,
     }
+}
+
+#[get("/favicon.ico")]
+async fn favicon() -> Option<NamedFile> {
+    let path = Path::new("./static/img/favicon.ico");
+    if path.is_dir() {
+        return None;
+    }
+    NamedFile::open(path).await.ok()
 }
 
 #[rocket::main]
@@ -145,7 +161,8 @@ async fn main() -> Result<(), rocket::Error> {
                 img,
                 img_raw,
                 status_details,
-                static_files
+                static_files,
+                favicon
             ],
         )
         .register("/", error_catchers())

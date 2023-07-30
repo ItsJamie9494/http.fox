@@ -4,13 +4,28 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="foxpost">
+    <meta name="generator" content="http.fox">
     <meta name="rating" content="General">
     <title>{{ global.title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="An API for HTTP Foxes, the best type of HTTP error message." />
     <meta name="keywords" content="http, fox, http fox, http status fox, status fox, api, foxxo, error, http status" />
     <meta name="author" content="Jamie Murphy" />
+
+    <meta property="og:title" content="{{ global.title }}" />
+    <meta property="og:description" content="An API for HTTP Foxes, the best type of HTTP error message." />
+    <meta property="og:url" content="{{ global.base_url }}" />
+    <meta property="og:site_name" content="http.fox" />
+    <meta property="og:image" content="{{ global.base_url }}/100.png" />
+    <meta property="og:image_alt" content="HTTP Foxes" />
+    <meta property="og:type" content="website" />
+
+    <link rel="author" href="https://itsjamie.dev" />
+    <link rel="manifest" href="/static/json/site.webmanifest" />
+    <link rel="shortcut icon" href="/static/img/favicon.png" />
+    <link rel="icon" href="/static/img/favicon.ico" />
+    <link rel="apple-touch-icon" href="/static/img/apple-touch-icon.png" />
+
     {% block meta %}
     {% endblock meta %}
     <link async defer href="/static/css/bundle.css" rel="stylesheet">
