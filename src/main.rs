@@ -24,7 +24,7 @@ fn index(config: &State<Config>) -> Template {
     Template::render(
         "index",
         context! {
-            global: config::context(),
+            global: config.context(),
             codes,
             missing_codes,
         },
@@ -37,7 +37,7 @@ fn credits_page(config: &State<Config>) -> Template {
     Template::render(
         "credits",
         context! {
-            global: config::context(),
+            global: config.context(),
             codes,
         },
     )
@@ -45,7 +45,7 @@ fn credits_page(config: &State<Config>) -> Template {
 
 #[get("/<img>")]
 async fn img(img: &str, config: &State<Config>) -> Option<NamedFile> {
-    let mut img_path = config.images_dir.clone();
+    let mut img_path = config.context().images_dir.clone();
 
     if img.contains("png") {
         img_path.push(img);
@@ -62,7 +62,7 @@ async fn img(img: &str, config: &State<Config>) -> Option<NamedFile> {
 
 #[get("/raw/<img>")]
 async fn img_raw(img: &str, config: &State<Config>) -> Option<NamedFile> {
-    let mut img_path = config.raw_images_dir.clone();
+    let mut img_path = config.context().raw_images_dir.clone();
 
     img_path.push(format!("{img}_raw.png"));
 
@@ -91,7 +91,7 @@ async fn status_details(code: &str, config: &State<Config>) -> Option<Template> 
         Some(Template::render(
             format!("statuses/status"),
             context! {
-                global: config::context(),
+                global: config.context(),
                 code,
                 message,
                 credits,

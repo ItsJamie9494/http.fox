@@ -32,7 +32,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         return Ok(());
     }
 
-    for f in config.raw_images_dir.read_dir()? {
+    for f in config.context().raw_images_dir.read_dir()? {
         let file = f?;
 
         let _filename = file.path();

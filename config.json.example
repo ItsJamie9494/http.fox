@@ -1,0 +1,6 @@
+{
+    "title": "http.fox",
+    "base_url": "http://localhost:8080",
+    "raw_images_dir": "./static/images/raw",
+    "images_dir": "./static/images"
+}

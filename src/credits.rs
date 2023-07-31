@@ -5,7 +5,7 @@ use serde_json::Value;
 
 const CREDITS_JSON: &[u8] = include_bytes!("credits.json");
 
-#[derive(Clone)]
+#[derive(Clone, Serialize, Deserialize)]
 pub struct CreditsList {
     list: Vec<Credits>,
 }

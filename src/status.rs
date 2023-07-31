@@ -19,7 +19,7 @@ pub struct Status {
     pub note: Option<String>,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct Statuses {
     list: HashMap<String, Status>,
     not_implemented_list: Vec<i32>,
