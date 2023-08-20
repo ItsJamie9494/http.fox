@@ -27,8 +27,8 @@ impl Png {
     pub fn new(config: &Config, status: String) -> Option<Self> {
         let statuses = Statuses::default();
 
-        let img_dir = config.context().images_dir.clone();
-        let raw_img_dir = config.context().raw_images_dir.clone();
+        let img_dir = config.context.images_dir.clone();
+        let raw_img_dir = config.context.raw_images_dir.clone();
 
         if statuses.status_exists(&status) {
             Some(Self {

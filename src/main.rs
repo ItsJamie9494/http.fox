@@ -3,7 +3,7 @@ extern crate rocket;
 
 use config::Config;
 use error::error_catchers;
-use rocket::{fs::NamedFile, State};
+use rocket::{fairing::AdHoc, fs::NamedFile, State};
 use rocket_dyn_templates::{context, Template};
 use std::{
     fs::read_to_string,
@@ -24,7 +24,7 @@ fn index(config: &State<Config>) -> Template {
     Template::render(
         "index",
         context! {
-            global: config.context(),
+            global: config.context.clone(),
             codes,
             missing_codes,
         },
@@ -37,7 +37,7 @@ fn credits_page(config: &State<Config>) -> Template {
     Template::render(
         "credits",
         context! {
-            global: config.context(),
+            global: config.context.clone(),
             codes,
         },
     )
@@ -45,7 +45,7 @@ fn credits_page(config: &State<Config>) -> Template {
 
 #[get("/<img>")]
 async fn img(img: &str, config: &State<Config>) -> Option<NamedFile> {
-    let mut img_path = config.context().images_dir.clone();
+    let mut img_path = config.context.images_dir.clone();
 
     if img.contains("png") {
         img_path.push(img);
@@ -62,7 +62,7 @@ async fn img(img: &str, config: &State<Config>) -> Option<NamedFile> {
 
 #[get("/raw/<img>")]
 async fn img_raw(img: &str, config: &State<Config>) -> Option<NamedFile> {
-    let mut img_path = config.context().raw_images_dir.clone();
+    let mut img_path = config.context.raw_images_dir.clone();
 
     img_path.push(format!("{img}_raw.png"));
 
@@ -91,7 +91,7 @@ async fn status_details(code: &str, config: &State<Config>) -> Option<Template> 
         Some(Template::render(
             format!("statuses/status"),
             context! {
-                global: config.context(),
+                global: config.context.clone(),
                 code,
                 message,
                 credits,
@@ -150,8 +150,6 @@ async fn favicon() -> Option<NamedFile> {
 
 #[rocket::main]
 async fn main() -> Result<(), rocket::Error> {
-    let config = Config::default();
-
     let _server = rocket::build()
         .mount(
             "/",
@@ -165,9 +163,9 @@ async fn main() -> Result<(), rocket::Error> {
                 favicon
             ],
         )
+        .attach(AdHoc::config::<Config>())
         .register("/", error_catchers())
         .attach(Template::fairing())
-        .manage(config)
         .launch()
         .await?;
 

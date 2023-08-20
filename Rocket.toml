@@ -1,0 +1,328 @@
+[default.context]
+title = "http.fox"
+base_url = "http://localhost:8080"
+raw_images_dir = "./static/images/raw"
+images_dir = "./static/images"
+
+[default]
+status.not_implemented_list = [
+  204,
+  205,
+  208,
+  226,
+  304,
+  305,
+  307,
+  308,
+  401,
+  403,
+  406,
+  407,
+  410,
+  411,
+  412,
+  413,
+  414,
+  415,
+  416,
+  417,
+  418,
+  420,
+  422,
+  423,
+  424,
+  425,
+  426,
+  428,
+  431,
+  444,
+  450,
+  451,
+  497,
+  498,
+  499,
+  500,
+  501,
+  502,
+  503,
+  504,
+  506,
+  507,
+  510,
+  511,
+  522,
+  523,
+  599
+]
+
+[default.status.list.100]
+name = "Continue"
+header = [ "Expect" ]
+links = [
+  [ "https://www.rfc-editor.org/rfc/rfc9110#status.100", "Spec" ]
+]
+
+[default.status.list.101]
+name = "Switching Protocols"
+header = [ "Upgrade" ]
+links = [
+  [ "https://www.rfc-editor.org/rfc/rfc9110#status.101", "Spec" ],
+  [
+  "https://developer.mozilla.org/en-US/docs/Web/HTTP/Protocol_upgrade_mechanism",
+  "Protocol upgrade mechanism"
+],
+  [
+  "https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API",
+  "WebSockets"
+]
+]
+
+[default.status.list.102]
+name = "Processing"
+deprecated = true
+header = [ "Expect" ]
+links = [
+  [ "https://tools.ietf.org/html/rfc2518#section-10.1", "Spec" ]
+]
+
+[default.status.list.103]
+name = "Early Hints"
+experimental = true
+header = [ "Content-Security-Policy", "Link" ]
+links = [
+  [
+  "https://html.spec.whatwg.org/multipage/semantics.html#early-hints",
+  "Spec"
+]
+]
+
+[default.status.list.200]
+name = "OK"
+links = [
+  [ "https://www.rfc-editor.org/rfc/rfc9110#status.200", "Spec" ],
+  [
+  "https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods",
+  "HTTP Request Methods"
+]
+]
+
+[default.status.list.201]
+name = "Created"
+links = [
+  [ "https://www.rfc-editor.org/rfc/rfc9110#status.201", "Spec" ]
+]
+
+[default.status.list.202]
+name = "Accepted"
+header = [ "Accept" ]
+links = [
+  [ "https://www.rfc-editor.org/rfc/rfc9110#status.202", "Spec" ]
+]
+
+[default.status.list.203]
+name = "Non-Authoritative Information"
+header = [ "Warning" ]
+links = [
+  [ "https://www.rfc-editor.org/rfc/rfc9110#status.203", "Spec" ],
+  [
+  "https://developer.mozilla.org/en-US/docs/Glossary/Proxy_server",
+  "Proxy server"
+]
+]
+
+[default.status.list.206]
+name = "Partial Content"
+header = [ "If-Range", "Range", "Content-Range", "Content-Type" ]
+links = [
+  [ "https://www.rfc-editor.org/rfc/rfc9110#status.206", "Spec" ]
+]
+
+[default.status.list.207]
+name = "Multi-Status"
+note = "The ability to return a collection of resources is part of the WebDAV protocol (it may be received by web applications accessing a WebDAV server). Browsers accessing web pages will never encounter this status code."
+links = [
+  [
+  "https://www.rfc-editor.org/rfc/rfc4918#section-11.1",
+  "Spec"
+],
+  [
+  "https://developer.mozilla.org/en-US/docs/Glossary/WebDAV",
+  "WebDAV"
+],
+  [
+  "https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods",
+  "HTTP Request Methods"
+]
+]
+
+[default.status.list.300]
+name = "Multiple Choices"
+links = [
+  [ "https://www.rfc-editor.org/rfc/rfc9110#status.300", "Spec" ]
+]
+
+[default.status.list.301]
+name = "Moved Permanently"
+note = "Although the specification requires the method and the body to remain unchanged when the redirection is performed, not all user-agents meet this requirement. Use the 301 code only as a response for GET or HEAD methods and use the 308 Permanent Redirect for POST methods instead, as the method change is explicitly prohibited with this status."
+links = [
+  [ "https://www.rfc-editor.org/rfc/rfc9110#status.301", "Spec" ]
+]
+
+[default.status.list.302]
+name = "Found"
+links = [
+  [ "https://www.rfc-editor.org/rfc/rfc9110#status.303", "Spec" ]
+]
+
+[default.status.list.303]
+name = "See Other"
+links = [
+  [ "https://www.rfc-editor.org/rfc/rfc9110#status.303", "Spec" ]
+]
+
+[default.status.list.400]
+name = "Bad Request"
+warning = "The client should not repeat this request without modification."
+links = [
+  [ "https://www.rfc-editor.org/rfc/rfc9110#status.400", "Spec" ]
+]
+
+[default.status.list.402]
+name = "Payment Required"
+links = [
+  [ "https://www.rfc-editor.org/rfc/rfc9110#status.402", "Spec" ],
+  [
+  "https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication",
+  "HTTP Authentication"
+]
+]
+
+[default.status.list.404]
+name = "Not Found"
+links = [
+  [ "https://www.rfc-editor.org/rfc/rfc9110#status.400", "Spec" ],
+  [
+  "https://en.wikipedia.org/wiki/HTTP_404",
+  "Wikipedia: HTTP 404"
+],
+  [
+  "https://en.wikipedia.org/wiki/Link_rot",
+  "Wikipedia: Link rot"
+]
+]
+
+[default.status.list.405]
+name = "Method Not Allowed"
+links = [
+  [ "https://www.rfc-editor.org/rfc/rfc9110#status.405", "Spec" ]
+]
+
+[default.status.list.408]
+name = "Request Timeout"
+note = "Some servers merely shut down the connection without sending this message"
+header = [ "Connection", "X-DNS-Prefetch-Control" ]
+links = [
+  [ "https://www.rfc-editor.org/rfc/rfc9110#status.408", "Spec" ]
+]
+
+[default.status.list.409]
+name = "Conflict"
+links = [
+  [ "https://www.rfc-editor.org/rfc/rfc9110#status.409", "Spec" ]
+]
+
+[default.status.list.421]
+name = "Misdirected Request"
+links = [
+  [ "https://www.rfc-editor.org/rfc/rfc9110#status.421", "Spec" ]
+]
+
+[default.status.list.429]
+name = "Too Many Requests"
+header = [ "Retry-After" ]
+links = [
+  [
+  "https://datatracker.ietf.org/doc/html/rfc6585#section-4",
+  "Spec"
+]
+]
+
+[default.status.list.508]
+name = "Loop Detected"
+links = [
+  [ "https://www.rfc-editor.org/rfc/rfc5842#section-7.2", "Spec" ],
+  [
+  "https://developer.mozilla.org/en-US/docs/Glossary/WebDAV",
+  "WebDAV"
+]
+]
+
+[default.status.list.509]
+name = "Bandwidth Limit Exceeded"
+unofficial = true
+links = [
+  [
+  "https://documentation.cpanel.net/display/CKB/HTTP+Error+Codes+and+Quick+Fixes",
+  "cPanel Docs"
+]
+]
+
+[default.status.list.521]
+name = "Web Server Is Down"
+unofficial = true
+links = [
+  [
+  "https://developers.cloudflare.com/support/troubleshooting/cloudflare-errors/troubleshooting-cloudflare-5xx-errors/#error-521-web-server-is-down",
+  "Cloudflare Docs"
+]
+]
+
+[default.status.list.525]
+name = "SSL Handshake Failed"
+unofficial = true
+links = [
+  [
+  "https://developers.cloudflare.com/support/troubleshooting/cloudflare-errors/troubleshooting-cloudflare-5xx-errors/#error-525-ssl-handshake-failed",
+  "Cloudflare Docs"
+],
+  [
+  "https://www.cloudflare.com/learning/ssl/what-happens-in-a-tls-handshake/https://www.cloudflare.com/learning/ssl/what-happens-in-a-tls-handshake/",
+  "SSL Handshake"
+]
+]
+
+[default.status.list.530]
+name = "Site Frozen"
+unofficial = true
+links = [
+  [
+  "https://developers.cloudflare.com/support/troubleshooting/cloudflare-errors/troubleshooting-cloudflare-5xx-errors/#error-530",
+  "Cloudflare Docs"
+]
+]
+
+
+[[default.credits.list]]
+name = "Freeplay"
+url = "https://kitsunes.club/@freeplay"
+codes = [
+  102,
+  202,
+  207,
+  400,
+  402,
+  405,
+  408,
+  409,
+  421,
+  508,
+  509,
+  521,
+  525,
+  530
+]
+
+[[default.credits.list]]
+name = "AnCuRuadh"
+url = "https://awwter.online/@AnCuRuadh"
+codes = [ 100, 101, 103, 200, 201, 203, 206, 300, 301, 302, 303, 404 ]

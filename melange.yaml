@@ -1,0 +1,40 @@
+package:
+  name: httpfox
+  version: 2.0.2
+  description: a website to map http error codes to foxes
+  copyright:
+    - license: GPL-2.0-only
+      paths:
+        - "*"
+
+environment:
+  contents:
+    repositories:
+      - https://packages.wolfi.dev/os
+    keyring:
+      - https://packages.wolfi.dev/os/wolfi-signing.rsa.pub
+    packages:
+      - build-base
+      - wolfi-baselayout
+      - ca-certificates-bundle
+      - pkgconf
+      - busybox
+      - nodejs-20
+      - yarn
+      - git
+      - rust
+pipeline:
+  - name: Build Luna's blog
+    runs: |
+      EXEC_DIR="${{targets.destdir}}/usr/bin"
+      BLOG_HOME="${{targets.destdir}}/"
+      TARGETDIR="/var/cache/melange/httpfox"
+      mkdir -p "${BLOG_HOME}/media" "${EXEC_DIR}"
+      rm -rf .cargo
+      RUSTFLAGS="-C target-feature=+crt-static" cargo build --target x86_64-unknown-linux-gnu --release --target-dir "${TARGETDIR}"
+      cd static_src
+      yarn && yarn compile:prod
+      cd ..
+      cp "${TARGETDIR}/x86_64-unknown-linux-gnu/release/httpfox" "${EXEC_DIR}"
+      cp -rv static    "${{targets.destdir}}/static"
+      cp -rv templates "${{targets.destdir}}/templates"

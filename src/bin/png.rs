@@ -1,5 +1,5 @@
 use httpfox::{config::Config, png::Png};
-use std::error::Error;
+use std::{error::Error, fs::read_to_string};
 
 fn make_image(config: &Config, file_name: &str) -> Result<(), Box<dyn Error>> {
     println!("Converting image {file_name}");
@@ -20,7 +20,8 @@ fn make_image(config: &Config, file_name: &str) -> Result<(), Box<dyn Error>> {
 }
 
 fn main() -> Result<(), Box<dyn Error>> {
-    let config = Config::default();
+    let config_file = read_to_string("./Rocket.toml").unwrap();
+    let config = toml::from_str::<Config>(&config_file).unwrap();
 
     let args: Vec<String> = std::env::args().collect();
 
@@ -32,7 +33,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         return Ok(());
     }
 
-    for f in config.context().raw_images_dir.read_dir()? {
+    for f in config.context.raw_images_dir.read_dir()? {
         let file = f?;
 
         let _filename = file.path();
