@@ -38,3 +38,4 @@ pipeline:
       cp "${TARGETDIR}/x86_64-unknown-linux-gnu/release/httpfox" "${EXEC_DIR}"
       cp -rv static    "${{targets.destdir}}/static"
       cp -rv templates "${{targets.destdir}}/templates"
+      cp -rv data "${{targets.destdir}}/data"
