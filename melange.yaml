@@ -24,12 +24,12 @@ environment:
       - git
       - rust
 pipeline:
-  - name: Build Luna's blog
+  - name: Build Httpfox
     runs: |
       EXEC_DIR="${{targets.destdir}}/usr/bin"
-      BLOG_HOME="${{targets.destdir}}/"
+      FOX_HOLE="${{targets.destdir}}/"
       TARGETDIR="/var/cache/melange/httpfox"
-      mkdir -p "${BLOG_HOME}/media" "${EXEC_DIR}"
+      mkdir -p "${FOX_HOLE}/static" "${EXEC_DIR}"
       rm -rf .cargo
       RUSTFLAGS="-C target-feature=+crt-static" cargo build --target x86_64-unknown-linux-gnu --release --target-dir "${TARGETDIR}"
       cd static_src
