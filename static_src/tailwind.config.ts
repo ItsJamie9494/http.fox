@@ -7,6 +7,7 @@ module.exports = {
 		"../templates/*.html.tera",
 		"../templates/statuses/*.html.tera",
 		"../static/**/*.js",
+		"../data/*.md"
 	],
 	theme: {
 		extend: {
