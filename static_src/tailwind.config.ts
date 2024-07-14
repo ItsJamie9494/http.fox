@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-import { Config } from "tailwindcss";
+import type { Config } from "tailwindcss";
 
 module.exports = {
 	darkMode: "class",
@@ -7,7 +7,7 @@ module.exports = {
 		"../templates/*.html.tera",
 		"../templates/statuses/*.html.tera",
 		"../static/**/*.js",
-		"../data/*.md"
+		"../data/*.md",
 	],
 	theme: {
 		extend: {

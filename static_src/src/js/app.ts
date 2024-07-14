@@ -16,9 +16,8 @@ function getTheme(): Theme {
 			window.matchMedia("(prefers-color-scheme: light)").matches)
 	) {
 		return Theme.Light;
-	} else {
-		return Theme.Dark;
 	}
+	return Theme.Dark;
 }
 
 function setTheme(): void {
@@ -80,7 +79,7 @@ window.addEventListener("DOMContentLoaded", () => {
 	});
 
 	if (CopyrightYear) {
-		const year: Number = new Date().getFullYear();
+		const year: number = new Date().getFullYear();
 		CopyrightYear.innerText = year.toString();
 	}
 
