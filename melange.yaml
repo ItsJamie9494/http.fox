@@ -1,6 +1,7 @@
 package:
   name: httpfox
   version: 2.0.2
+  epoch: 1
   description: a website to map http error codes to foxes
   copyright:
     - license: GPL-2.0-only
@@ -19,23 +20,23 @@ environment:
       - ca-certificates-bundle
       - pkgconf
       - busybox
-      - nodejs-20
+      - nodejs-22
       - yarn
       - git
       - rust
 pipeline:
   - name: Build Httpfox
     runs: |
-      EXEC_DIR="${{targets.destdir}}/usr/bin"
       FOX_HOLE="${{targets.destdir}}/"
+      EXEC_DIR="${{targets.destdir}}/usr/bin"
       TARGETDIR="/var/cache/melange/httpfox"
-      mkdir -p "${FOX_HOLE}/static" "${EXEC_DIR}"
+      mkdir -p "${EXEC_DIR}"
       rm -rf .cargo
       RUSTFLAGS="-C target-feature=+crt-static" cargo build --target x86_64-unknown-linux-gnu --release --target-dir "${TARGETDIR}"
       cd static_src
       yarn && yarn compile:prod
       cd ..
-      cp "${TARGETDIR}/x86_64-unknown-linux-gnu/release/httpfox" "${EXEC_DIR}"
-      cp -rv static    "${{targets.destdir}}/static"
-      cp -rv templates "${{targets.destdir}}/templates"
+      cp -v "${TARGETDIR}/x86_64-unknown-linux-gnu/release/httpfox" "${EXEC_DIR}"
+      cp -rv static    "${FOX_HOLE}/static"
+      cp -rv templates "${FOX_HOLE}/templates"
       cp -rv data "${{targets.destdir}}/data"
